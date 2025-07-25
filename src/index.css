@@ -188,7 +188,7 @@
   
   /* Portfolio grid hover effects */
   .portfolio-item {
-    @apply relative overflow-hidden group cursor-pointer;
+    @apply relative overflow-hidden cursor-pointer;
   }
   
   .portfolio-overlay {
