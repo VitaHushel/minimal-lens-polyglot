@@ -229,6 +229,6 @@
   }
   
   .back-to-top.visible {
-    @apply opacity-100 visible;
+    @apply opacity-100;
   }
 }
