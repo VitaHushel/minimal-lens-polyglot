@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Professional photographer design system - minimalist, light, airy aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - soft, professional palette */
+    --background: 0 0% 99%;
+    --foreground: 25 15% 15%;
 
+    /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 25 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 25 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - warm charcoal for elegance */
+    --primary: 25 15% 15%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - warm beige */
+    --secondary: 42 15% 92%;
+    --secondary-foreground: 25 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - soft gray */
+    --muted: 210 10% 95%;
+    --muted-foreground: 25 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - warm beige tone */
+    --accent: 35 20% 88%;
+    --accent-foreground: 25 15% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status colors */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs */
+    --border: 210 12% 88%;
+    --input: 210 12% 88%;
+    --ring: 25 15% 15%;
 
-    --radius: 0.5rem;
+    /* Custom photographer theme colors */
+    --warm-beige: 42 25% 90%;
+    --soft-gray: 210 8% 92%;
+    --cream: 45 30% 96%;
+    --charcoal: 25 15% 15%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--cream)), hsl(var(--warm-beige)));
+    --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(var(--soft-gray)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--charcoal) / 0.08);
+    --shadow-medium: 0 8px 30px -4px hsl(var(--charcoal) / 0.12);
+    --shadow-strong: 0 15px 50px -8px hsl(var(--charcoal) / 0.15);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s ease;
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,110 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-light;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Custom photographer UI components */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .section-gradient {
+    background: var(--gradient-section);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+  
+  /* Scroll animations */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .fade-in-up.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* Hero button animation */
+  .hero-button {
+    @apply relative overflow-hidden;
+  }
+  
+  .hero-button::before {
+    content: '';
+    @apply absolute inset-0 bg-primary/10 transform scale-x-0 origin-left transition-transform duration-300;
+  }
+  
+  .hero-button:hover::before {
+    @apply scale-x-100;
+  }
+  
+  /* Portfolio grid hover effects */
+  .portfolio-item {
+    @apply relative overflow-hidden group cursor-pointer;
+  }
+  
+  .portfolio-overlay {
+    @apply absolute inset-0 bg-primary/60 opacity-0 transition-opacity duration-300 flex items-center justify-center;
+  }
+  
+  .portfolio-item:hover .portfolio-overlay {
+    @apply opacity-100;
+  }
+  
+  /* Testimonial card styling */
+  .testimonial-card {
+    @apply bg-card p-6 rounded-lg shadow-soft hover:shadow-medium transition-shadow duration-300;
+  }
+  
+  /* Navigation styling */
+  .nav-link {
+    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  /* Form styling */
+  .form-input {
+    @apply w-full px-4 py-3 border border-input bg-background rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200;
+  }
+  
+  /* Back to top button */
+  .back-to-top {
+    @apply fixed bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-medium hover:shadow-strong transition-all duration-300 flex items-center justify-center opacity-0 invisible;
+  }
+  
+  .back-to-top.visible {
+    @apply opacity-100 visible;
   }
 }

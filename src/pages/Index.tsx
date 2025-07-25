@@ -1,13 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import { LanguageProvider } from '../contexts/LanguageContext';
+import { Navigation } from '../components/Navigation';
+import { HeroSection } from '../components/sections/HeroSection';
+import { AboutSection } from '../components/sections/AboutSection';
+import { PortfolioSection } from '../components/sections/PortfolioSection';
+import { PricesSection } from '../components/sections/PricesSection';
+import { BookingSection } from '../components/sections/BookingSection';
+import { TestimonialsSection } from '../components/sections/TestimonialsSection';
+import { ContactSection } from '../components/sections/ContactSection';
+import { Footer } from '../components/Footer';
+import { BackToTop } from '../components/BackToTop';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <PortfolioSection />
+          <PricesSection />
+          <BookingSection />
+          <TestimonialsSection />
+          <ContactSection />
+        </main>
+        <Footer />
+        <BackToTop />
       </div>
-    </div>
+    </LanguageProvider>
   );
 };
 

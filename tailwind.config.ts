@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				light: ['Inter', 'system-ui', 'sans-serif'],
+				elegant: ['Playfair Display', 'Georgia', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom photographer theme colors
+				'warm-beige': 'hsl(var(--warm-beige))',
+				'soft-gray': 'hsl(var(--soft-gray))',
+				'cream': 'hsl(var(--cream))',
+				'charcoal': 'hsl(var(--charcoal))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
