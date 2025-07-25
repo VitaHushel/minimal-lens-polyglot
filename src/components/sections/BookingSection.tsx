@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Calendar, Clock, Send } from 'lucide-react';
+import { useForm, Controller } from 'react-hook-form';
+import { Calendar as CalendarIcon, Clock, Send } from 'lucide-react';
+import { format } from 'date-fns';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
+import { Calendar } from '../ui/calendar';
 import { useToast } from '../../hooks/use-toast';
 import {
   Select,
@@ -11,13 +13,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../ui/select';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '../ui/popover';
+import { cn } from '../../lib/utils';
 
 interface BookingFormData {
   name: string;
   email: string;
   phone: string;
   serviceType: string;
-  date: string;
+  date: Date | undefined;
   time: string;
   message: string;
   honeypot: string; // Spam protection
@@ -36,6 +44,7 @@ export const BookingSection: React.FC = () => {
     reset,
     setValue,
     watch,
+    control,
     formState: { errors }
   } = useForm<BookingFormData>();
 
@@ -232,18 +241,43 @@ export const BookingSection: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label 
-                    htmlFor="date" 
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    <Calendar className="w-4 h-4 inline mr-1" />
+                    <CalendarIcon className="w-4 h-4 inline mr-1" />
                     {t.booking.form.date} *
                   </label>
-                  <input
-                    id="date"
-                    type="date"
-                    min={new Date().toISOString().split('T')[0]}
-                    {...register('date', { required: 'Please select a date' })}
-                    className="form-input"
+                  <Controller
+                    name="date"
+                    control={control}
+                    rules={{ required: 'Please select a date' }}
+                    render={({ field }) => (
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            className={cn(
+                              "form-input justify-start text-left font-normal",
+                              !field.value && "text-muted-foreground"
+                            )}
+                          >
+                            <CalendarIcon className="mr-2 h-4 w-4" />
+                            {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                          <Calendar
+                            mode="single"
+                            selected={field.value}
+                            onSelect={field.onChange}
+                            disabled={(date) =>
+                              date < new Date(new Date().setHours(0, 0, 0, 0))
+                            }
+                            initialFocus
+                            className={cn("p-3 pointer-events-auto")}
+                          />
+                        </PopoverContent>
+                      </Popover>
+                    )}
                   />
                   {errors.date && (
                     <p className="text-destructive text-xs mt-1">{errors.date.message}</p>

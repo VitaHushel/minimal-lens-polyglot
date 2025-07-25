@@ -2,54 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Sarah & Michael Chen",
-    role: "Wedding Clients",
-    image: "/api/placeholder/80/80",
-    rating: 5,
-    text: "Elena captured our wedding day perfectly! Every photo tells a story, and her attention to detail is incredible. She made us feel so comfortable and natural. We couldn't be happier with the results!",
-    occasion: "Garden Wedding, June 2024"
-  },
-  {
-    id: 2,
-    name: "Jessica Rodriguez",
-    role: "Portrait Client",
-    image: "/api/placeholder/80/80",
-    rating: 5,
-    text: "I was nervous about my headshot session, but Elena's warm personality put me at ease immediately. The photos exceeded my expectations - professional yet natural. Highly recommend!",
-    occasion: "Professional Headshots, March 2024"
-  },
-  {
-    id: 3,
-    name: "The Johnson Family",
-    role: "Family Session",
-    image: "/api/placeholder/80/80",
-    rating: 5,
-    text: "Elena has such a gift for capturing genuine moments. Our family photos are absolutely beautiful, and she managed to get perfect shots even with our energetic twins! Amazing patience and skill.",
-    occasion: "Family Portrait Session, August 2024"
-  },
-  {
-    id: 4,
-    name: "David Thompson",
-    role: "Corporate Event",
-    image: "/api/placeholder/80/80",
-    rating: 5,
-    text: "Elena provided exceptional event photography for our company celebration. Professional, unobtrusive, and the quality of work is outstanding. We'll definitely book her again!",
-    occasion: "Corporate Anniversary, October 2024"
-  },
-  {
-    id: 5,
-    name: "Maria & John Williams",
-    role: "Maternity Session",
-    image: "/api/placeholder/80/80",
-    rating: 5,
-    text: "Elena made our maternity session so special and comfortable. The photos are artistic and emotional - exactly what we hoped for. We can't wait to book her for our newborn session!",
-    occasion: "Maternity Photography, September 2024"
-  }
-];
-
 export const TestimonialsSection: React.FC = () => {
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
@@ -76,11 +28,11 @@ export const TestimonialsSection: React.FC = () => {
   // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % Math.ceil(testimonials.length / 3));
+      setCurrentSlide((prev) => (prev + 1) % Math.ceil(t.testimonials.items.length / 3));
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [t.testimonials.items.length]);
 
   const renderStars = (rating: number) => {
     return (
@@ -117,10 +69,10 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {testimonials.map((testimonial, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {t.testimonials.items.map((testimonial, index) => (
             <div
-              key={testimonial.id}
+              key={index}
               className={`testimonial-card transition-all duration-700 delay-${index * 100} ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
@@ -132,12 +84,12 @@ export const TestimonialsSection: React.FC = () => {
 
               {/* Rating */}
               <div className="mb-4">
-                {renderStars(testimonial.rating)}
+                {renderStars(5)}
               </div>
 
               {/* Testimonial Text */}
               <blockquote className="text-foreground/80 mb-6 leading-relaxed">
-                "{testimonial.text}"
+                "{testimonial.content}"
               </blockquote>
 
               {/* Client Info */}
@@ -152,7 +104,7 @@ export const TestimonialsSection: React.FC = () => {
                     {testimonial.name}
                   </div>
                   <div className="text-xs text-muted-foreground">
-                    {testimonial.occasion}
+                    {testimonial.role}
                   </div>
                 </div>
               </div>

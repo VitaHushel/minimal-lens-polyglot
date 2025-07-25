@@ -9,6 +9,7 @@ export interface TranslationContent {
     prices: string;
     booking: string;
     testimonials: string;
+    blog: string;
     contact: string;
   };
   hero: {
@@ -76,9 +77,25 @@ export interface TranslationContent {
       };
     };
   };
+  blog: {
+    title: string;
+    subtitle: string;
+    readMore: string;
+    posts: {
+      title: string;
+      excerpt: string;
+      date: string;
+      category: string;
+    }[];
+  };
   testimonials: {
     title: string;
     subtitle: string;
+    items: {
+      name: string;
+      role: string;
+      content: string;
+    }[];
   };
   contact: {
     title: string;
@@ -111,6 +128,7 @@ export const translations: Record<Language, TranslationContent> = {
       prices: "Prices",
       booking: "Booking",
       testimonials: "Testimonials",
+      blog: "Blog",
       contact: "Contact"
     },
     hero: {
@@ -202,9 +220,56 @@ export const translations: Record<Language, TranslationContent> = {
         }
       }
     },
+    blog: {
+      title: "Photography Blog",
+      subtitle: "Tips, stories, and inspiration from behind the lens",
+      readMore: "Read More",
+      posts: [
+        {
+          title: "5 Tips for Perfect Wedding Photos",
+          excerpt: "Discover the secrets to capturing magical wedding moments that couples will treasure forever.",
+          date: "March 15, 2024",
+          category: "Wedding"
+        },
+        {
+          title: "The Art of Natural Light Photography",
+          excerpt: "Learn how to use natural light to create stunning portraits that showcase your subject's personality.",
+          date: "March 8, 2024",
+          category: "Tutorial"
+        },
+        {
+          title: "Family Photo Session Preparation Guide",
+          excerpt: "Everything families need to know to prepare for a successful and fun photo session.",
+          date: "February 28, 2024",
+          category: "Family"
+        }
+      ]
+    },
     testimonials: {
       title: "What Clients Say",
-      subtitle: "Stories from families and couples I've had the joy to photograph"
+      subtitle: "Stories from families and couples I've had the joy to photograph",
+      items: [
+        {
+          name: "Sarah & Michael",
+          role: "Wedding Couple",
+          content: "Elena captured our wedding day perfectly! Her attention to detail and ability to make us feel comfortable resulted in the most beautiful photos we could have dreamed of. Every single shot tells the story of our love."
+        },
+        {
+          name: "Jessica Thompson",
+          role: "Mother of Two",
+          content: "Our family photo session with Elena was absolutely wonderful. She was so patient with our kids and managed to capture their personalities beautifully. We treasure these photos and will book with her again!"
+        },
+        {
+          name: "David Rodriguez",
+          role: "Corporate Executive",
+          content: "Elena's professionalism and artistic eye made my headshot session a breeze. The photos she delivered exceeded my expectations and have opened many doors in my career. Highly recommend!"
+        },
+        {
+          name: "Anna & James",
+          role: "Expecting Parents",
+          content: "Elena made our maternity shoot so special and comfortable. She guided us through every pose and captured the joy of this precious time in our lives. We can't wait to work with her for newborn photos!"
+        }
+      ]
     },
     contact: {
       title: "Get in Touch",
@@ -235,6 +300,7 @@ export const translations: Record<Language, TranslationContent> = {
       prices: "Ціни",
       booking: "Бронювання",
       testimonials: "Відгуки",
+      blog: "Блог",
       contact: "Контакти"
     },
     hero: {
@@ -326,9 +392,56 @@ export const translations: Record<Language, TranslationContent> = {
         }
       }
     },
+    blog: {
+      title: "Фотографічний блог",
+      subtitle: "Поради, історії та натхнення з-за об'єктива",
+      readMore: "Читати далі",
+      posts: [
+        {
+          title: "5 порад для ідеальних весільних фото",
+          excerpt: "Відкрийте секрети захоплення чарівних весільних моментів, які пари будуть берегти вічно.",
+          date: "15 березня 2024",
+          category: "Весілля"
+        },
+        {
+          title: "Мистецтво фотографії в природному освітленні",
+          excerpt: "Дізнайтеся, як використовувати природне світло для створення приголомшливих портретів.",
+          date: "8 березня 2024",
+          category: "Урок"
+        },
+        {
+          title: "Підготовка до сімейної фотосесії",
+          excerpt: "Все, що потрібно знати сім'ям для підготовки до успішної та веселої фотосесії.",
+          date: "28 лютого 2024",
+          category: "Сім'я"
+        }
+      ]
+    },
     testimonials: {
       title: "Що кажуть клієнти",
-      subtitle: "Історії від сімей та пар, яких мені довелося фотографувати з радістю"
+      subtitle: "Історії від сімей та пар, яких мені довелося фотографувати з радістю",
+      items: [
+        {
+          name: "Сара та Майкл",
+          role: "Весільна пара",
+          content: "Елена ідеально запечатала наш весільний день! Її увага до деталей і здатність заспокоїти нас призвели до найкрасивіших фотографій, про які ми могли мріяти. Кожен знімок розповідає історію нашого кохання."
+        },
+        {
+          name: "Джесіка Томпсон",
+          role: "Мама двох дітей",
+          content: "Наша сімейна фотосесія з Еленою була просто чудовою. Вона була такою терплячою з нашими дітьми і зуміла прекрасно передати їх особистості. Ми дорожимо цими фото і знову забронюємо у неї!"
+        },
+        {
+          name: "Девід Родрігес",
+          role: "Корпоративний керівник",
+          content: "Професіоналізм Елени та художнє око зробили мою фотосесію портретів легкою. Фотографії, які вона зробила, перевершили мої очікування і відкрили багато дверей у моїй кар'єрі. Дуже рекомендую!"
+        },
+        {
+          name: "Анна та Джеймс",
+          role: "Майбутні батьки",
+          content: "Елена зробила нашу фотосесію вагітності такою особливою та комфортною. Вона провела нас через кожну позу і запечатала радість цього дорогоцінного часу в нашому житті. Не можемо дочекатися роботи з нею для фото новонародженого!"
+        }
+      ]
     },
     contact: {
       title: "Зв'яжіться зі мною",
@@ -359,6 +472,7 @@ export const translations: Record<Language, TranslationContent> = {
       prices: "Cennik",
       booking: "Rezerwacja",
       testimonials: "Opinie",
+      blog: "Blog",
       contact: "Kontakt"
     },
     hero: {
@@ -450,9 +564,56 @@ export const translations: Record<Language, TranslationContent> = {
         }
       }
     },
+    blog: {
+      title: "Blog fotograficzny",
+      subtitle: "Porady, historie i inspiracje zza obiektywu",
+      readMore: "Czytaj więcej",
+      posts: [
+        {
+          title: "5 wskazówek do idealnych zdjęć ślubnych",
+          excerpt: "Odkryj sekrety uwieczniania magicznych chwil ślubnych, które pary będą cenić na zawsze.",
+          date: "15 marca 2024",
+          category: "Ślub"
+        },
+        {
+          title: "Sztuka fotografii w naturalnym świetle",
+          excerpt: "Dowiedz się, jak wykorzystać naturalne światło do tworzenia oszałamiających portretów.",
+          date: "8 marca 2024",
+          category: "Poradnik"
+        },
+        {
+          title: "Przewodnik przygotowania do sesji rodzinnej",
+          excerpt: "Wszystko, co rodziny muszą wiedzieć, aby przygotować się do udanej i zabawnej sesji zdjęciowej.",
+          date: "28 lutego 2024",
+          category: "Rodzina"
+        }
+      ]
+    },
     testimonials: {
       title: "Co mówią klienci",
-      subtitle: "Historie od rodzin i par, które miałam radość fotografować"
+      subtitle: "Historie od rodzin i par, które miałam radość fotografować",
+      items: [
+        {
+          name: "Sarah & Michael",
+          role: "Para młoda",
+          content: "Elena idealnie uwieczniła nasz dzień ślubu! Jej dbałość o szczegóły i umiejętność wprowadzenia nas w komfortową atmosferę zaowocowały najpiękniejszymi zdjęciami, o których mogliśmy marzyć. Każde ujęcie opowiada historię naszej miłości."
+        },
+        {
+          name: "Jessica Thompson",
+          role: "Mama dwójki dzieci",
+          content: "Nasza rodzinna sesja zdjęciowa z Eleną była absolutnie wspaniała. Była tak cierpliwa z naszymi dziećmi i zdołała pięknie uchwycić ich osobowości. Cenimy te zdjęcia i ponownie zarezerwujemy u niej sesję!"
+        },
+        {
+          name: "David Rodriguez",
+          role: "Dyrektor korporacyjny",
+          content: "Profesjonalizm Eleny i artystyczne oko sprawiły, że moja sesja portretowa przebiegła bez problemu. Zdjęcia, które dostarczyła, przekroczyły moje oczekiwania i otworzyły wiele drzwi w mojej karierze. Gorąco polecam!"
+        },
+        {
+          name: "Anna & James",
+          role: "Przyszli rodzice",
+          content: "Elena sprawiła, że nasza sesja ciążowa była tak wyjątkowa i komfortowa. Prowadziła nas przez każdą pozę i uwieczniła radość z tego cennego czasu w naszym życiu. Nie możemy się doczekać współpracy z nią przy zdjęciach noworodka!"
+        }
+      ]
     },
     contact: {
       title: "Skontaktuj się",
