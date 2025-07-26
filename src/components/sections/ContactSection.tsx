@@ -30,7 +30,7 @@ export const ContactSection: React.FC = () => {
       icon: Phone,
       label: t.contact.phone,
       value: "+1 (555) 123-4567",
-      action: () => window.open('tel:+15551234567'),
+      action: () => window.open('tel:+48 791 613 941'),
       ariaLabel: "Call Elena Kowalski"
     },
     {

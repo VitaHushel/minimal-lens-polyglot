@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
     },
     {
       icon: Phone,
-      href: 'tel:+15551234567',
+      href: 'tel:+48 791 613 941',
       label: 'Phone',
       ariaLabel: 'Call Elena Kowalski'
     },
