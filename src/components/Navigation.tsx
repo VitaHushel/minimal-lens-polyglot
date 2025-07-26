@@ -58,7 +58,7 @@ export const Navigation: React.FC = () => {
               onClick={() => handleNavClick('#hero')}
               className="text-xl lg:text-2xl font-elegant font-semibold text-primary hover:text-primary/80 transition-colors"
             >
-              Elena Kowalski
+              {t.name}
             </button>
           </div>
 

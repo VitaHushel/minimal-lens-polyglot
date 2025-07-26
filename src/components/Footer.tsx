@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
           {/* Brand & Description */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-elegant font-semibold mb-4">
-              Elena Kowalski
+              {t.name}
             </h3>
             <p className="text-primary-foreground/80 leading-relaxed mb-6 max-w-md">
               Professional photographer specializing in capturing life's most precious moments 

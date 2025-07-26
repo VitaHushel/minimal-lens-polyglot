@@ -2,6 +2,7 @@
 export type Language = 'en' | 'uk' | 'pl';
 
 export interface TranslationContent {
+  name: string;
   nav: {
     home: string;
     about: string;
@@ -121,6 +122,7 @@ export interface TranslationContent {
 
 export const translations: Record<Language, TranslationContent> = {
   en: {
+    name: "Vita Hushel",
     nav: {
       home: "Home",
       about: "About",
@@ -132,7 +134,7 @@ export const translations: Record<Language, TranslationContent> = {
       contact: "Contact"
     },
     hero: {
-      title: "Elena Kowalski",
+      title: "Vita Hushel",
       subtitle: "Capturing Life's Most Precious Moments with Artistic Elegance",
       cta: "Book Your Session Now"
     },
@@ -284,15 +286,16 @@ export const translations: Record<Language, TranslationContent> = {
       }
     },
     footer: {
-      copyright: "© 2024 Elena Kowalski Photography. All rights reserved.",
+      copyright: "© 2024 Vita Hushel Photography. All rights reserved.",
       backToTop: "Back to top"
     },
     meta: {
-      title: "Elena Kowalski - Professional Photographer",
+      title: "Vita Hushel - Professional Photographer",
       description: "Professional photographer specializing in weddings, portraits, and family photography. Capturing your precious moments with artistic elegance."
     }
   },
   uk: {
+    name: "Віта Гушель",
     nav: {
       home: "Головна",
       about: "Про мене",
@@ -304,7 +307,7 @@ export const translations: Record<Language, TranslationContent> = {
       contact: "Контакти"
     },
     hero: {
-      title: "Елена Ковальська",
+      title: "Віта Гушель",
       subtitle: "Захоплюю найцінніші моменти життя з художньою елегантністю",
       cta: "Забронювати сесію"
     },
@@ -456,15 +459,16 @@ export const translations: Record<Language, TranslationContent> = {
       }
     },
     footer: {
-      copyright: "© 2024 Елена Ковальська Фотографія. Всі права захищені.",
+      copyright: "© 2024 Віта Гушель Фотографія. Всі права захищені.",
       backToTop: "Повернутися наверх"
     },
     meta: {
-      title: "Елена Ковальська - Професійний фотограф",
+      title: "Віта Гушель - Професійний фотограф",
       description: "Професійний фотограф, що спеціалізується на весільній, портретній та сімейній фотографії. Захоплюю ваші дорогоцінні моменти з художньою елегантністю."
     }
   },
   pl: {
+    name: "Wita Hushel",
     nav: {
       home: "Główna",
       about: "O mnie",
@@ -476,7 +480,7 @@ export const translations: Record<Language, TranslationContent> = {
       contact: "Kontakt"
     },
     hero: {
-      title: "Elena Kowalski",
+      title: "Wita Hushel",
       subtitle: "Uwiecznianie najcenniejszych życiowych chwil z artystyczną elegancją",
       cta: "Zarezerwuj sesję"
     },
@@ -628,11 +632,11 @@ export const translations: Record<Language, TranslationContent> = {
       }
     },
     footer: {
-      copyright: "© 2024 Elena Kowalski Photography. Wszystkie prawa zastrzeżone.",
+      copyright: "© 2024 Wita Hushel Photography. Wszystkie prawa zastrzeżone.",
       backToTop: "Powrót na górę"
     },
     meta: {
-      title: "Elena Kowalski - Profesjonalny fotograf",
+      title: "Wita Hushel - Profesjonalny fotograf",
       description: "Profesjonalny fotograf specjalizujący się w fotografii ślubnej, portretowej i rodzinnej. Uwieczniam Twoje cenne chwile z artystyczną elegancją."
     }
   }
