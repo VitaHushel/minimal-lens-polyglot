@@ -21,47 +21,42 @@ export const Footer: React.FC = () => {
       icon: Instagram,
       href: 'https://instagram.com/vitahushel',
       label: 'Instagram',
-      ariaLabel: t.contact.social.instagram,
-      displayText: '@vitahushel'
+      ariaLabel: t.contact.social.instagram || 'Instagram',
     },
     {
       icon: Send,
       href: 'https://t.me/vitahushel',
       label: 'Telegram',
-      ariaLabel: t.contact.social.telegram,
-      displayText: 'Telegram'
+      ariaLabel: t.contact.social.telegram || 'Telegram',
     },
     {
       icon: MessageCircle,
       href: 'https://wa.me/48791613941',
       label: 'WhatsApp',
-      ariaLabel: t.contact.social.whatsapp,
-      displayText: 'WhatsApp'
+      ariaLabel: t.contact.social.whatsapp || 'WhatsApp',
     },
     {
       icon: Phone,
       href: 'tel:+48791613941',
       label: 'Phone',
       ariaLabel: 'Call Vita Hushel',
-      displayText: t.contact.phone
     },
     {
       icon: Mail,
       href: 'mailto:vitahushel@gmail.com',
       label: 'Email',
       ariaLabel: 'Send email to Vita Hushel',
-      displayText: t.contact.email
-    }
+    },
   ];
 
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href) as HTMLElement;
+    const element = document.querySelector(href) as HTMLElement | null;
     if (element) {
       const offset = 80;
       const elementPosition = element.offsetTop - offset;
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -77,26 +72,27 @@ export const Footer: React.FC = () => {
               {t.name}
             </h3>
             <p className="text-primary-foreground/80 leading-relaxed mb-6 max-w-md">
-              Professional photographer specializing in capturing life's most precious moments 
-              with artistic elegance. Creating timeless memories that last a lifetime.
+              Professional photographer specializing in capturing life's most precious moments with artistic elegance. Creating timeless memories that last a lifetime.
             </p>
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              {socialLinks.slice(0, 3).map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary-foreground hover:text-primary-foreground/80 transition-colors"
-                    aria-label={social.ariaLabel}
-                  >
-                    <Icon className="w-5 h-5" />
-                    <span>{social.displayText}</span>
-                  </a>
-                );
-              })}
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-primary-foreground/60">Follow me:</span>
+              <div className="flex gap-3">
+                {socialLinks.slice(0, 3).map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+                      aria-label={social.ariaLabel}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
@@ -140,16 +136,16 @@ export const Footer: React.FC = () => {
           <p className="text-primary-foreground/60 text-sm text-center md:text-left">
             {t.footer.copyright}
           </p>
-          
+
           <div className="flex items-center gap-6 text-sm">
-            <a 
-              href="/privacy" 
+            <a
+              href="/privacy"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
               Privacy Policy
             </a>
-            <a 
-              href="/terms" 
+            <a
+              href="/terms"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
               Terms of Service
