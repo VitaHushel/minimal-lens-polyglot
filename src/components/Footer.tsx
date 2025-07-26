@@ -21,31 +21,36 @@ export const Footer: React.FC = () => {
       icon: Instagram,
       href: 'https://instagram.com/vitahushel',
       label: 'Instagram',
-      ariaLabel: t.contact.social.instagram
+      ariaLabel: t.contact.social.instagram,
+      displayText: '@vitahushel'
     },
     {
       icon: Send,
       href: 'https://t.me/vitahushel',
       label: 'Telegram',
-      ariaLabel: t.contact.social.telegram
+      ariaLabel: t.contact.social.telegram,
+      displayText: 'Telegram'
     },
     {
       icon: MessageCircle,
       href: 'https://wa.me/48791613941',
       label: 'WhatsApp',
-      ariaLabel: t.contact.social.whatsapp
+      ariaLabel: t.contact.social.whatsapp,
+      displayText: 'WhatsApp'
     },
     {
       icon: Phone,
       href: 'tel:+48791613941',
       label: 'Phone',
-      ariaLabel: 'Call Vita Hushel'
+      ariaLabel: 'Call Vita Hushel',
+      displayText: t.contact.phone
     },
     {
       icon: Mail,
       href: 'mailto:vitahushel@gmail.com',
       label: 'Email',
-      ariaLabel: 'Send email to Vita Hushel'
+      ariaLabel: 'Send email to Vita Hushel',
+      displayText: t.contact.email
     }
   ];
 
@@ -75,25 +80,23 @@ export const Footer: React.FC = () => {
               Professional photographer specializing in capturing life's most precious moments 
               with artistic elegance. Creating timeless memories that last a lifetime.
             </p>
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-primary-foreground/60">Follow me:</span>
-              <div className="flex gap-3">
-                {socialLinks.slice(0, 3).map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
-                      aria-label={social.ariaLabel}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </a>
-                  );
-                })}
-              </div>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              {socialLinks.slice(0, 3).map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-primary-foreground hover:text-primary-foreground/80 transition-colors"
+                    aria-label={social.ariaLabel}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span>{social.displayText}</span>
+                  </a>
+                );
+              })}
             </div>
           </div>
 
