@@ -30,12 +30,6 @@ export interface TranslationContent {
     title: string;
     subtitle: string;
     packages: {
-      wedding: {
-        title: string;
-        price: string;
-        description: string;
-        features: string[];
-      };
       portrait: {
         title: string;
         price: string;
@@ -48,13 +42,37 @@ export interface TranslationContent {
         description: string;
         features: string[];
       };
+      children: {
+        title: string;
+        price: string;
+        description: string;
+        features: string[];
+      };
+      wedding: {
+        title: string;
+        price: string;
+        description: string;
+        features: string[];
+      };
       event: {
         title: string;
         price: string;
         description: string;
         features: string[];
       };
+      studio: {
+        title: string;
+        price: string;
+        description: string;
+        features: string[];
+      };
     };
+    additionalInfo: {
+      delivery: string;
+      originals: string;
+    };
+    mostPopular: string;
+    bookNow: string;
   };
   booking: {
     title: string;
@@ -157,55 +175,75 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Photography Packages",
       subtitle: "Professional photography services tailored to your needs",
       packages: {
-        wedding: {
-          title: "Wedding Photography",
-          price: "$2,500",
-          description: "Complete wedding day coverage",
-          features: [
-            "8-10 hours of coverage",
-            "500+ edited photos",
-            "Online gallery",
-            "Engagement session included",
-            "Print release"
-          ]
-        },
         portrait: {
-          title: "Portrait Session",
-          price: "$350",
-          description: "Professional headshots and portraits",
+          title: "Individual Photo Session",
+          price: "$60",
+          description: "50 minutes duration",
           features: [
-            "1-hour session",
-            "25+ edited photos",
-            "Online gallery",
+            "40+ edited photos",
             "Wardrobe consultation",
-            "Makeup touch-ups"
+            "Location assistance"
           ]
         },
         family: {
-          title: "Family Photography",
-          price: "$450",
-          description: "Beautiful family memories",
+          title: "Family Photo Session", 
+          price: "$60",
+          description: "50 minutes duration",
           features: [
-            "1.5-hour session",
             "40+ edited photos",
-            "Online gallery",
-            "Multiple outfit changes",
-            "Location of choice"
+            "Wardrobe consultation", 
+            "Location assistance"
+          ]
+        },
+        children: {
+          title: "Children Photo Session",
+          price: "$60", 
+          description: "50 minutes duration",
+          features: [
+            "40+ edited photos",
+            "Wardrobe consultation",
+            "Location assistance"
+          ]
+        },
+        wedding: {
+          title: "Wedding Photography",
+          price: "Package 1: $50 | Package 2: $70",
+          description: "Package 1: Wedding walk 30 min (40+ photos) | Package 2: Registry + walk 30 min (70+ photos)",
+          features: [
+            "Package 1: Wedding walk 30 min",
+            "40+ edited photos (Package 1)",
+            "Package 2: Registry + walk 30 min", 
+            "70+ edited photos (Package 2)"
           ]
         },
         event: {
-          title: "Event Photography",
-          price: "$1,200",
-          description: "Corporate and special events",
+          title: "Celebration Photography",
+          price: "Package 1: $60 | Package 2: $95",
+          description: "Package 1: Photo zone session (50+ photos) | Package 2: Photo zone + 1 hour celebration (100+ photos)",
           features: [
-            "4-6 hours of coverage",
-            "200+ edited photos",
-            "Online gallery",
-            "Same-day preview",
-            "Rush delivery available"
+            "Package 1: Photo zone session 50 min",
+            "50+ edited photos (Package 1)",
+            "Package 2: Photo zone + 1 hour celebration",
+            "100+ edited photos (Package 2)"
+          ]
+        },
+        studio: {
+          title: "Studio Photography",
+          price: "$70",
+          description: "Up to 1 hour duration",
+          features: [
+            "40+ edited photos",
+            "Wardrobe consultation",
+            "Studio selection assistance (client pays for studio)"
           ]
         }
-      }
+      },
+      additionalInfo: {
+        delivery: "Edited photos sent via Google Drive file storage, photos available for 30 days, during which you can save them.",
+        originals: "All originals optionally transferred to your flash drive within 3 days after receiving edited photos."
+      },
+      mostPopular: "Most Popular",
+      bookNow: "Book Now"
     },
     booking: {
       title: "Book Your Session",
@@ -305,7 +343,7 @@ export const translations: Record<Language, TranslationContent> = {
     },
     meta: {
       title: "Vita Hushel - Professional Photographer",
-      description: "Professional photographer specializing in weddings, portraits, and family photography. Capturing your precious moments with artistic elegance."
+      description: "Professional photographer specializing in capturing life's most precious moments with artistic elegance. Creating timeless memories that last a lifetime."
     }
   },
   uk: {
@@ -337,55 +375,76 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Фотографічні пакети",
       subtitle: "Професійні фотографічні послуги, адаптовані до ваших потреб",
       packages: {
-        wedding: {
-          title: "Весільна фотографія",
-          price: "$2,500",
-          description: "Повне покриття весільного дня",
-          features: [
-            "8-10 годин зйомки",
-            "500+ оброблених фото",
-            "Онлайн-галерея",
-            "Сесія заручин включена",
-            "Ліцензія на друк"
-          ]
-        },
         portrait: {
-          title: "Портретна сесія",
-          price: "$350",
-          description: "Професійні портрети та хедшоти",
+          title: "Індивідуальна фотосесія",
+          price: "250 zł | 2 330 ₴ | $60",
+          description: "Тривалість 50 хв",
           features: [
-            "1-годинна сесія",
-            "25+ оброблених фото",
-            "Онлайн-галерея",
+            "40+ оброблених фото",
             "Консультація по гардеробу",
-            "Ретуш макіяжу"
+            "Допомога в підбору локації"
           ]
         },
         family: {
-          title: "Сімейна фотографія",
-          price: "$450",
-          description: "Прекрасні сімейні спогади",
+          title: "Сімейна фотосесія",
+          price: "250 zł | 2 330 ₴ | $60",
+          description: "Тривалість 50 хв",
           features: [
-            "1.5-годинна сесія",
-            "40+ оброблених фото",
-            "Онлайн-галерея",
-            "Кілька змін одягу",
-            "Локація на вибір"
+            "40+ оброблених фотографій",
+            "Консультація по гардеробу",
+            "Допомога в підбору локації"
+          ]
+        },
+        children: {
+          title: "Дитяча фотосесія",
+          price: "250 zł | 2 330 ₴ | $60",
+          description: "Тривалість 50 хв",
+          features: [
+            "40+ оброблених фотографій",
+            "Консультація по гардеробу",
+            "Допомога в підбору локації"
+          ]
+        },
+        wedding: {
+          title: "Весільна фотозйомка",
+          price: "Пакет 1: 200 zł | 1 870 ₴ | $50 | Пакет 2: 300 zł | 2 800 ₴ | $70",
+          description: "Пакет 1: Весільна прогулянка 30 хв (40+ фото) | Пакет 2: Фотозйомка розпису + прогулянка 30 хв (70+ фото)",
+          features: [
+            "Пакет 1: Весільна прогулянка 30 хв",
+            "40+ оброблених фотографій (Пакет 1)",
+            "Пакет 2: Фотозйомка розпису + прогулянка 30 хв",
+            "70+ оброблених фотографій (Пакет 2)"
           ]
         },
         event: {
-          title: "Подієва фотографія",
-          price: "$1,200",
-          description: "Корпоративні та спеціальні події",
+          title: "Фотозйомка святкування",
+          price: "Пакет 1: 250 zł | 2 330 ₴ | $60 | Пакет 2: 400 zł | 3 730 ₴ | $95",
+          description: "Пакет 1: Фотосесія коло фотозони (50+ фото) | Пакет 2: Фотосесія коло фотозони + 1 година фотозйомки святкування (100+ фото)",
           features: [
-            "4-6 годин зйомки",
-            "200+ оброблених фото",
-            "Онлайн-галерея",
-            "Прев'ю в той же день",
-            "Експрес-доставка доступна"
+            "Пакет 1: Фотосесія коло фотозони",
+            "Тривалість 50 хв",
+            "50+ оброблених фото (Пакет 1)",
+            "Пакет 2: Фотосесія коло фотозони + 1 година фотозйомки святкування",
+            "100+ оброблених фотографій (Пакет 2)"
+          ]
+        },
+        studio: {
+          title: "Студійна фотозйомка",
+          price: "300 zł | 2 800 ₴ | $70",
+          description: "Тривалість до 1 години",
+          features: [
+            "40+ оброблених фотографій",
+            "Консультація по гардеробу",
+            "Допомога у виборі студії (студію оплачує клієнт)"
           ]
         }
-      }
+      },
+      additionalInfo: {
+        delivery: "Оброблені фотографії надсилаю через файлозберігач ГуглДиск, фото в доступі 30 днів, протягом яких ви маєте можливість їх зберегти в себе.",
+        originals: "Всі оригінали за бажанням скидаю на вашу флешку впродовж 3 днів після отримання оброблених фото."
+      },
+      mostPopular: "Найпопулярніше",
+      bookNow: "Забронювати"
     },
     booking: {
       title: "Забронювати сесію",
@@ -485,7 +544,7 @@ export const translations: Record<Language, TranslationContent> = {
     },
     meta: {
       title: "Віта Гушель - Професійний фотограф",
-      description: "Професійний фотограф, що спеціалізується на весільній, портретній та сімейній фотографії. Захоплюю ваші дорогоцінні моменти з художньою елегантністю."
+      description: "Професійний фотограф, що спеціалізується на захопленні найцінніших життєвих моментів з художньою елегантністю. Створюю вічні спогади, які залишаються на все життя."
     }
   },
   pl: {
@@ -517,55 +576,76 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Pakiety fotograficzne",
       subtitle: "Profesjonalne usługi fotograficzne dostosowane do Twoich potrzeb",
       packages: {
-        wedding: {
-          title: "Fotografia ślubna",
-          price: "$2,500",
-          description: "Pełne pokrycie dnia ślubu",
-          features: [
-            "8-10 godzin sesji",
-            "500+ obrobionych zdjęć",
-            "Galeria online",
-            "Sesja narzeczeńska wliczona",
-            "Licencja do druku"
-          ]
-        },
         portrait: {
-          title: "Sesja portretowa",
-          price: "$350",
-          description: "Profesjonalne portrety i zdjęcia biznesowe",
+          title: "Sesja indywidualna",
+          price: "250 zł | 2 330 ₴ | $60",
+          description: "Czas trwania 50 min",
           features: [
-            "1-godzinna sesja",
-            "25+ obrobionych zdjęć",
-            "Galeria online",
-            "Konsultacja stylistyczna",
-            "Korekta makijażu"
+            "40+ obrobionych zdjęć",
+            "Konsultacja stylizacji",
+            "Pomoc w wyborze lokalizacji"
           ]
         },
         family: {
-          title: "Fotografia rodzinna",
-          price: "$450",
-          description: "Piękne rodzinne wspomnienia",
+          title: "Sesja rodzinna",
+          price: "250 zł | 2 330 ₴ | $60",
+          description: "Czas trwania 50 min",
           features: [
-            "1,5-godzinna sesja",
             "40+ obrobionych zdjęć",
-            "Galeria online",
-            "Kilka zmian stylizacji",
-            "Lokalizacja do wyboru"
+            "Konsultacja stylizacji",
+            "Pomoc w wyborze lokalizacji"
+          ]
+        },
+        children: {
+          title: "Sesja dziecięca",
+          price: "250 zł | 2 330 ₴ | $60",
+          description: "Czas trwania 50 min",
+          features: [
+            "40+ obrobionych zdjęć",
+            "Konsultacja stylizacji",
+            "Pomoc w wyborze lokalizacji"
+          ]
+        },
+        wedding: {
+          title: "Fotografia ślubna",
+          price: "Pakiet 1: 200 zł | 1 870 ₴ | $50 | Pakiet 2: 300 zł | 2 800 ₴ | $70",
+          description: "Pakiet 1: Spacer ślubny 30 min (40+ zdjęć) | Pakiet 2: Ślub cywilny + spacer 30 min (70+ zdjęć)",
+          features: [
+            "Pakiet 1: Spacer ślubny 30 min",
+            "40+ obrobionych zdjęć (Pakiet 1)",
+            "Pakiet 2: Ślub cywilny + spacer 30 min",
+            "70+ obrobionych zdjęć (Pakiet 2)"
           ]
         },
         event: {
-          title: "Fotografia eventowa",
-          price: "$1,200",
-          description: "Wydarzenia korporacyjne i specjalne",
+          title: "Fotografia uroczystości",
+          price: "Pakiet 1: 250 zł | 2 330 ₴ | $60 | Pakiet 2: 400 zł | 3 730 ₴ | $95",
+          description: "Pakiet 1: Sesja przy strefie foto (50+ zdjęć) | Pakiet 2: Strefa foto + 1 godzina uroczystości (100+ zdjęć)",
           features: [
-            "4-6 godzin sesji",
-            "200+ obrobionych zdjęć",
-            "Galeria online",
-            "Podgląd tego samego dnia",
-            "Ekspresowa dostawa dostępna"
+            "Pakiet 1: Sesja przy strefie foto",
+            "Czas trwania 50 min",
+            "50+ obrobionych zdjęć (Pakiet 1)",
+            "Pakiet 2: Strefa foto + 1 godzina uroczystości",
+            "100+ obrobionych zdjęć (Pakiet 2)"
+          ]
+        },
+        studio: {
+          title: "Sesja studyjna",
+          price: "300 zł | 2 800 ₴ | $70",
+          description: "Czas trwania do 1 godziny",
+          features: [
+            "40+ obrobionych zdjęć",
+            "Konsultacja stylizacji",
+            "Pomoc w wyborze studia (studio płaci klient)"
           ]
         }
-      }
+      },
+      additionalInfo: {
+        delivery: "Obrobione zdjęcia wysyłam przez dysk Google, zdjęcia dostępne przez 30 dni, w czasie których możesz je zapisać.",
+        originals: "Wszystkie oryginały opcjonalnie przegrywam na Twoją pendrive w ciągu 3 dni po otrzymaniu obrobionych zdjęć."
+      },
+      mostPopular: "Najpopularniejsze",
+      bookNow: "Zarezerwuj"
     },
     booking: {
       title: "Zarezerwuj sesję",
@@ -665,7 +745,7 @@ export const translations: Record<Language, TranslationContent> = {
     },
     meta: {
       title: "Wita Hushel - Profesjonalny fotograf",
-      description: "Profesjonalny fotograf specjalizujący się w fotografii ślubnej, portretowej i rodzinnej. Uwieczniam Twoje cenne chwile z artystyczną elegancją."
+      description: "Profesjonalny fotograf specjalizujący się w uwiecznianiu najcenniejszych życiowych chwil z artystyczną elegancją. Tworzę ponadczasowe wspomnienia, które pozostają na całe życie."
     }
   }
 };

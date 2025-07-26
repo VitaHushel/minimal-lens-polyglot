@@ -47,11 +47,19 @@ export const PricesSection: React.FC = () => {
       popular: true
     },
     {
+      key: 'children' as const,
+      popular: false
+    },
+    {
       key: 'wedding' as const,
       popular: false
     },
     {
       key: 'event' as const,
+      popular: false
+    },
+    {
+      key: 'studio' as const,
       popular: false
     }
   ];
@@ -78,7 +86,7 @@ export const PricesSection: React.FC = () => {
         </div>
 
         {/* Pricing Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {packages.map((pkg, index) => {
             const packageData = t.prices.packages[pkg.key];
             return (
@@ -91,7 +99,7 @@ export const PricesSection: React.FC = () => {
                 {pkg.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                      Most Popular
+                      {t.prices.mostPopular}
                     </span>
                   </div>
                 )}
@@ -129,7 +137,7 @@ export const PricesSection: React.FC = () => {
                         : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
                     }`}
                   >
-                    Book Now
+                    {t.prices.bookNow}
                   </Button>
                 </div>
               </div>
@@ -144,10 +152,10 @@ export const PricesSection: React.FC = () => {
           }`}
         >
           <p className="text-muted-foreground mb-4">
-            All packages include professional editing and online gallery access
+            {t.prices.additionalInfo.delivery}
           </p>
           <p className="text-sm text-muted-foreground">
-            Custom packages available upon request. Travel fees may apply for locations outside the city.
+            {t.prices.additionalInfo.originals}
           </p>
         </div>
       </div>
