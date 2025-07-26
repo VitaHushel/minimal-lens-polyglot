@@ -220,7 +220,7 @@ export const BookingSection: React.FC = () => {
                     {t.booking.form.serviceType} *
                   </label>
                   <Select onValueChange={(value) => setValue('serviceType', value)}>
-                    <SelectTrigger className="form-input">
+                    <SelectTrigger id="serviceType" className="form-input">
                       <SelectValue placeholder={t.booking.form.servicePlaceholder} />
                     </SelectTrigger>
                     <SelectContent>
@@ -293,7 +293,7 @@ export const BookingSection: React.FC = () => {
                     {t.booking.form.time} *
                   </label>
                   <Select onValueChange={(value) => setValue('time', value)}>
-                    <SelectTrigger className="form-input">
+                    <SelectTrigger id="time" className="form-input">
                       <SelectValue placeholder={t.booking.form.timePlaceholder} />
                     </SelectTrigger>
                     <SelectContent>
