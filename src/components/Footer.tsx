@@ -19,13 +19,13 @@ export const Footer: React.FC = () => {
   const socialLinks = [
     {
       icon: Instagram,
-      href: 'https://instagram.com/elenakowalski.photo',
+      href: 'https://instagram.com/vitahushel',
       label: 'Instagram',
       ariaLabel: t.contact.social.instagram
     },
     {
       icon: Send,
-      href: 'https://t.me/elenakowalski',
+      href: 'https://t.me/vitahushel',
       label: 'Telegram',
       ariaLabel: t.contact.social.telegram
     },
@@ -37,15 +37,15 @@ export const Footer: React.FC = () => {
     },
     {
       icon: Phone,
-      href: 'tel:+48 791 613 941',
+      href: 'tel:+48791613941',
       label: 'Phone',
-      ariaLabel: 'Call Elena Kowalski'
+      ariaLabel: 'Call Vita Hushel'
     },
     {
       icon: Mail,
-      href: 'mailto:hello@elenakowalski.com',
+      href: 'mailto:vitahushel@gmail.com',
       label: 'Email',
-      ariaLabel: 'Send email to Elena Kowalski'
+      ariaLabel: 'Send email to Vita Hushel'
     }
   ];
 
