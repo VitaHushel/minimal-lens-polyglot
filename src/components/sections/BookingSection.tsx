@@ -52,9 +52,9 @@ export const BookingSection: React.FC = () => {
 
   // Register serviceType and time fields for validation
   React.useEffect(() => {
-    register('serviceType', { required: 'Please select a service type' });
-    register('time', { required: 'Please select a time' });
-  }, [register]);
+    register('serviceType', { required: t.booking.form.validation.serviceRequired });
+    register('time', { required: t.booking.form.validation.timeRequired });
+  }, [register, t]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -232,7 +232,7 @@ export const BookingSection: React.FC = () => {
                     </SelectContent>
                   </Select>
                   {errors.serviceType && (
-                    <p className="text-destructive text-xs mt-1">Please select a service type</p>
+                    <p className="text-destructive text-xs mt-1">{t.booking.form.validation.serviceRequired}</p>
                   )}
                 </div>
               </div>
@@ -249,7 +249,7 @@ export const BookingSection: React.FC = () => {
                   <Controller
                     name="date"
                     control={control}
-                    rules={{ required: 'Please select a date' }}
+                    rules={{ required: t.booking.form.validation.dateRequired }}
                     render={({ field }) => (
                       <Popover>
                         <PopoverTrigger asChild>
@@ -294,7 +294,7 @@ export const BookingSection: React.FC = () => {
                   </label>
                   <Select onValueChange={(value) => setValue('time', value)}>
                     <SelectTrigger className="form-input">
-                      <SelectValue placeholder="Select time" />
+                      <SelectValue placeholder={t.booking.form.timePlaceholder} />
                     </SelectTrigger>
                     <SelectContent>
                       {timeSlots.map((time) => (
@@ -303,7 +303,7 @@ export const BookingSection: React.FC = () => {
                     </SelectContent>
                   </Select>
                   {errors.time && (
-                    <p className="text-destructive text-xs mt-1">Please select a time</p>
+                    <p className="text-destructive text-xs mt-1">{t.booking.form.validation.timeRequired}</p>
                   )}
                 </div>
               </div>
@@ -348,7 +348,7 @@ export const BookingSection: React.FC = () => {
               </div>
 
               <p className="text-xs text-muted-foreground text-center">
-                By submitting this form, you agree to be contacted about your photography inquiry.
+                {t.booking.form.agreement}
               </p>
             </form>
           </div>

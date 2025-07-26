@@ -69,6 +69,13 @@ export interface TranslationContent {
       message: string;
       submit: string;
       servicePlaceholder: string;
+      timePlaceholder: string;
+      agreement: string;
+      validation: {
+        serviceRequired: string;
+        dateRequired: string;
+        timeRequired: string;
+      };
       services: {
         wedding: string;
         portrait: string;
@@ -140,7 +147,7 @@ export const translations: Record<Language, TranslationContent> = {
     },
     about: {
       title: "About Me",
-      content: "With over 8 years of experience in professional photography, I specialize in capturing authentic emotions and timeless moments. My passion lies in creating beautiful, natural images that tell your unique story. From intimate weddings to family portraits, I bring a warm, professional approach to every session, ensuring you feel comfortable and confident in front of the camera."
+      content: "Hello! My name is Vita, and I'm a photographer — so delighted to welcome you to my website! I've been living in Poland for almost three years now, and before that, I lived with my family in Kyiv. My love for photography began in childhood — I photographed friends on film with a 'Kodak', capturing moments of life that I wanted to preserve for a long time. Later, after receiving my first scholarship, I bought a digital Olympus — and that was the first step towards something bigger. I've always been drawn to the ability to capture not just an image, but an emotion, a mood, warmth. Over time, through Instagram, I began sharing pieces of my life: everyday moments, food, atmosphere. At the same time, I was learning editing, searching for my style and sense of composition. I bought my first professional camera just a year ago. It was scary — but I knew dreams are worth pursuing. Today I have the most grateful clients and sincerely rejoice at every opportunity to give someone a memory for life. For me, photography is not just about a beautiful picture. It's about sincerity, attention, interaction. About your smiles, hugs, genuine moments that you want to preserve not only in your heart, but also in photos. I invite you to a photo session — I promise lots of light, warmth, and shots you'll want to return to."
     },
     portfolio: {
       title: "Portfolio",
@@ -213,6 +220,13 @@ export const translations: Record<Language, TranslationContent> = {
         message: "Message (Optional)",
         submit: "Send Booking Request",
         servicePlaceholder: "Select a service",
+        timePlaceholder: "Select time",
+        agreement: "By submitting this form, you agree to be contacted about your photography inquiry.",
+        validation: {
+          serviceRequired: "Please select a service type",
+          dateRequired: "Please select a date",
+          timeRequired: "Please select a time"
+        },
         services: {
           wedding: "Wedding Photography",
           portrait: "Portrait Session",
@@ -313,7 +327,7 @@ export const translations: Record<Language, TranslationContent> = {
     },
     about: {
       title: "Про мене",
-      content: "Маючи понад 8 років досвіду у професійній фотографії, я спеціалізуюся на захопленні справжніх емоцій та безчасних моментів. Моя пристрасть полягає у створенні красивих, природних зображень, які розповідають вашу унікальну історію. Від інтимних весіль до сімейних портретів, я приношу теплий, професійний підхід до кожної сесії, забезпечуючи ваш комфорт та впевненість перед камерою."
+      content: "Привіт! Мене звати Віта, я фотограф — і дуже рада вітати вас на своєму сайті! Вже майже три роки я живу в Польщі, а до цього мешкала з родиною в Києві. Моя любов до фотографії почалася ще в дитинстві — я фотографувала подруг на плівкову «Кодак», ловлячи моменти життя, які хочеться зберегти надовго. Згодом, отримавши свою першу стипендію, купила цифровий Olympus — і це стало першим кроком до чогось більшого. Мене завжди приваблювала можливість зафіксувати не просто зображення, а емоцію, настрій, тепло. З часом через Instagram я почала ділитися частинками свого життя: моментами буднів, їжею, атмосферою. Паралельно вчилася обробці, шукала свій стиль і відчуття кадру. Свій перший професійний фотоапарат я придбала всього рік тому. Було страшно — але я знала: мрії варто втілювати. Сьогодні я маю найвдячніших клієнтів і щиро радію кожній можливості подарувати комусь пам'ять на все життя. Для мене фотографія — це не лише про красиву картинку. Це про щирість, увагу, взаємодію. Про ваші посмішки, обійми, справжні моменти, які хочеться зберегти не лише в серці, а й на фото. Запрошую вас на фотосесію — обіцяю багато світла, тепла і кадрів, до яких захочеться повертатися."
     },
     portfolio: {
       title: "Портфоліо",
@@ -386,6 +400,13 @@ export const translations: Record<Language, TranslationContent> = {
         message: "Повідомлення (Необов'язково)",
         submit: "Відправити запит на бронювання",
         servicePlaceholder: "Оберіть послугу",
+        timePlaceholder: "Оберіть час",
+        agreement: "Відправляючи цю форму, ви погоджуєтеся на контакт щодо вашого запиту з фотографії.",
+        validation: {
+          serviceRequired: "Будь ласка, оберіть тип послуги",
+          dateRequired: "Будь ласка, оберіть дату",
+          timeRequired: "Будь ласка, оберіть час"
+        },
         services: {
           wedding: "Весільна фотографія",
           portrait: "Портретна сесія",
@@ -486,7 +507,7 @@ export const translations: Record<Language, TranslationContent> = {
     },
     about: {
       title: "O mnie",
-      content: "Z ponad 8-letnim doświadczeniem w fotografii profesjonalnej, specjalizuję się w uchwyceniu autentycznych emocji i ponadczasowych momentów. Moją pasją jest tworzenie pięknych, naturalnych obrazów, które opowiadają Twoją wyjątkową historię. Od intymnych ślubów po portrety rodzinne, wnoszę ciepłe, profesjonalne podejście do każdej sesji, zapewniając komfort i pewność siebie przed kamerą."
+      content: "Cześć! Nazywam się Wita, jestem fotografem — i bardzo się cieszę, że mogę powitać Cię na mojej stronie! Od prawie trzech lat mieszkam w Polsce, a wcześniej mieszkałam z rodziną w Kijowie. Moja miłość do fotografii zaczęła się w dzieciństwie — fotografowałam przyjaciółki na analogowym 'Kodaku', łapiąc chwile życia, które chciałam zachować na długo. Później, po otrzymaniu pierwszego stypendium, kupiłam cyfrowego Olympusa — i to był pierwszy krok w kierunku czegoś większego. Zawsze pociągała mnie możliwość uchwycenia nie tylko obrazu, ale emocji, nastroju, ciepła. Z czasem przez Instagram zaczęłam dzielić się kawałkami mojego życia: chwilami dnia codziennego, jedzeniem, atmosferą. Równolegle uczyłam się obróbki, szukałam swojego stylu i wyczucia kadru. Mój pierwszy profesjonalny aparat kupiłam dopiero rok temu. Było straszno — ale wiedziałam: marzenia warto realizować. Dziś mam najwdzięczniejszych klientów i szczerze cieszę się z każdej możliwości podarowania komuś wspomnień na całe życie. Dla mnie fotografia to nie tylko piękny obraz. To szczerość, uwaga, interakcja. To Wasze uśmiechy, objęcia, prawdziwe chwile, które chcecie zachować nie tylko w sercu, ale też na zdjęciach. Zapraszam Was na sesję zdjęciową — obiecuję dużo światła, ciepła i kadrów, do których będziecie chcieli wracać."
     },
     portfolio: {
       title: "Portfolio",
@@ -559,6 +580,13 @@ export const translations: Record<Language, TranslationContent> = {
         message: "Wiadomość (Opcjonalnie)",
         submit: "Wyślij prośbę o rezerwację",
         servicePlaceholder: "Wybierz usługę",
+        timePlaceholder: "Wybierz godzinę",
+        agreement: "Przesyłając ten formularz, wyrażasz zgodę na kontakt w sprawie zapytania fotograficznego.",
+        validation: {
+          serviceRequired: "Proszę wybrać typ usługi",
+          dateRequired: "Proszę wybrać datę",
+          timeRequired: "Proszę wybrać godzinę"
+        },
         services: {
           wedding: "Fotografia ślubna",
           portrait: "Sesja portretowa",
