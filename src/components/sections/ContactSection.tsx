@@ -30,15 +30,15 @@ export const ContactSection: React.FC = () => {
       icon: Phone,
       label: t.contact.phone,
       value: "+1 (555) 123-4567",
-      action: () => window.open('tel:+48 791 613 941'),
-      ariaLabel: "Call Elena Kowalski"
+      action: () => window.open('tel:+48791613941'),
+      ariaLabel: "Call Vita Husuel"
     },
     {
       icon: Mail,
       label: t.contact.email,
-      value: "hello@elenakowalski.com",
-      action: () => window.open('mailto:hello@elenakowalski.com'),
-      ariaLabel: "Send email to Elena Kowalski"
+      value: "vitahushel@gmail.com",
+      action: () => window.open('mailto:vitahushel@gmail.com'),
+      ariaLabel: "Send email to Vita Hushel"
     },
     {
       icon: MessageCircle,
@@ -51,14 +51,14 @@ export const ContactSection: React.FC = () => {
       icon: Send,
       label: t.contact.social.telegram,
       value: "Telegram",
-      action: () => window.open('https://t.me/elenakowalski', '_blank'),
+      action: () => window.open('https://t.me/vitahushel', '_blank'),
       ariaLabel: t.contact.social.telegram
     },
     {
       icon: Instagram,
       label: t.contact.social.instagram,
-      value: "@elenakowalski.photo",
-      action: () => window.open('https://instagram.com/elenakowalski.photo', '_blank'),
+      value: "@vitahushel",
+      action: () => window.open('https://instagram.com/vitahushel', '_blank'),
       ariaLabel: t.contact.social.instagram
     }
   ];
