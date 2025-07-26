@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
     },
     {
       icon: MessageCircle,
-      href: 'https://wa.me/15551234567',
+      href: 'https://wa.me/48791613941',
       label: 'WhatsApp',
       ariaLabel: t.contact.social.whatsapp
     },
