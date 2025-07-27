@@ -718,7 +718,7 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "David Rodriguez",
           role: "Dyrektor korporacyjny",
-          content: "Profesjonalizm Eleny i artystyczne oko sprawiły, że moja sesja portretowa przebiegła bez problemu. Zdjęcia, które dostarczyła, przekroczyły moje oczekiwania i otworzyły wiele drzwi w mojej karierze. Gorąco polecam!"
+          content: "Profesjonalizm Wiktorii i artystyczne oko sprawiły, że moja sesja portretowa przebiegła bez problemu. Zdjęcia, które dostarczyła, przekroczyły moje oczekiwania i otworzyły wiele drzwi w mojej karierze. Gorąco polecam!"
         },
         {
           name: "Anna & James",
