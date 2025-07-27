@@ -41,7 +41,7 @@ export const AboutSection: React.FC = () => {
             <div className="relative">
               <img
                 src={profileImage}
-                alt={t.about.alt}
+                alt="Vita Hushel - Professional Photographer"
                 className="w-full max-w-md mx-auto lg:max-w-full rounded-lg shadow-medium object-cover aspect-square"
                 loading="lazy"
               />
