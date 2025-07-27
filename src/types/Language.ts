@@ -330,11 +330,11 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Ready to capture your special moments?",
       address: "Wolsztyn, 64-200, Poland",
       phone: "+48 791 613 941",
-      email: "Wiktoriahushel@gmail.com",
+      email: "vitahushel@gmail.com",
       social: {
         whatsapp: "Message on WhatsApp",
         telegram: "Contact via Telegram",
-        instagram: "Follow on Instagram @Wiktoriahushel"
+        instagram: "Follow on Instagram @vitaahushel"
       }
     },
     footer: {
@@ -520,7 +520,7 @@ export const translations: Record<Language, TranslationContent> = {
           content: "Професіоналізм Віти та художнє око зробили мою фотосесію портретів легкою. Фотографії, які вона зробила, перевершили мої очікування і відкрили багато дверей у моїй кар'єрі. Дуже рекомендую!"
         },
         {
-          name: "Анна та Джеймс",
+          name: "Анна та Петро",
           role: "Майбутні батьки",
           content: "Віта зробила нашу фотосесію вагітності такою особливою та комфортною. Вона провела нас через кожну позу і запечатала радість цього дорогоцінного часу в нашому житті. Не можемо дочекатися роботи з нею для фото новонародженого!"
         }
@@ -531,11 +531,11 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Готові зафіксувати ваші особливі моменти?",
       address: "Вольштин, 64-200, Польща",
       phone: "+48 791 613 941",
-      email: "Wiktoriahushel@gmail.com",
+      email: "vitahushel@gmail.com",
       social: {
         whatsapp: "Написати в WhatsApp",
         telegram: "Зв'язатися через Telegram",
-        instagram: "Підписатися в Instagram @Wiktoriahushel"
+        instagram: "Підписатися в Instagram @vitahushel"
       }
     },
     footer: {
@@ -732,11 +732,11 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Gotowi uwiecznić swoje wyjątkowe chwile?",
       address: "Wolsztyn, 64-200, Polska",
       phone: "+48 791 613 941",
-      email: "Wiktoriahushel@gmail.com",
+      email: "vitahushel@gmail.com",
       social: {
         whatsapp: "Napisz na WhatsApp",
         telegram: "Skontaktuj się przez Telegram",
-        instagram: "Śledź na Instagram @Wiktoriahushel"
+        instagram: "Śledź na Instagram @vitahushel"
       }
     },
     footer: {
