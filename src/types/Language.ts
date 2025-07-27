@@ -476,7 +476,7 @@ export const translations: Record<Language, TranslationContent> = {
       }
     },
     blog: {
-      title: "Фотографічний блог",
+      title: "Фото блог",
       subtitle: "Поради, історії та натхнення з-за об'єктива",
       readMore: "Читати далі",
       posts: [
