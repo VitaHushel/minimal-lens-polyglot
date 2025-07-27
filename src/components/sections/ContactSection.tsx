@@ -29,9 +29,9 @@ export const ContactSection: React.FC = () => {
     {
       icon: Phone,
       label: t.contact.phone,
-      value: "+1 (555) 123-4567",
+      value: "+48 791 613 941",
       action: () => window.open('tel:+48791613941'),
-      ariaLabel: "Call Vita Husuel"
+      ariaLabel: "Call Vita Hushel"
     },
     {
       icon: Mail,
@@ -44,7 +44,7 @@ export const ContactSection: React.FC = () => {
       icon: MessageCircle,
       label: t.contact.social.whatsapp,
       value: "WhatsApp",
-      action: () => window.open('https://wa.me/15551234567', '_blank'),
+      action: () => window.open('https://wa.me/48791613941', '_blank'),
       ariaLabel: t.contact.social.whatsapp
     },
     {
@@ -168,7 +168,7 @@ export const ContactSection: React.FC = () => {
                     Interactive map will be embedded here using Google Maps API
                   </p>
                   <Button
-                    onClick={() => window.open('https://maps.google.com/?q=123+Photography+Lane,+Creative+District,+New+York,+NY+10001', '_blank')}
+                    onClick={() => window.open('https://maps.google.com/?q=Wolsztyn,+64-200,+Poland', '_blank')}
                     variant="outline"
                     size="sm"
                     className="mt-4"

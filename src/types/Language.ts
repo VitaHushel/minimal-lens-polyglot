@@ -328,13 +328,13 @@ export const translations: Record<Language, TranslationContent> = {
     contact: {
       title: "Get in Touch",
       subtitle: "Ready to capture your special moments?",
-      address: "123 Photography Lane, Creative District, New York, NY 10001",
-      phone: "+1 (555) 123-4567",
-      email: "hello@elenakowalski.com",
+      address: "Wolsztyn, 64-200, Poland",
+      phone: "+48 791 613 941",
+      email: "vitahushel@gmail.com",
       social: {
         whatsapp: "Message on WhatsApp",
         telegram: "Contact via Telegram",
-        instagram: "Follow on Instagram"
+        instagram: "Follow on Instagram @vitahushel"
       }
     },
     footer: {
@@ -529,13 +529,13 @@ export const translations: Record<Language, TranslationContent> = {
     contact: {
       title: "Зв'яжіться зі мною",
       subtitle: "Готові зафіксувати ваші особливі моменти?",
-      address: "вул. Фотографічна, 123, Творчий район, Нью-Йорк, NY 10001",
-      phone: "+1 (555) 123-4567",
-      email: "hello@elenakowalski.com",
+      address: "Вольштин, 64-200, Польща",
+      phone: "+48 791 613 941",
+      email: "vitahushel@gmail.com",
       social: {
         whatsapp: "Написати в WhatsApp",
         telegram: "Зв'язатися через Telegram",
-        instagram: "Підписатися в Instagram"
+        instagram: "Підписатися в Instagram @vitahushel"
       }
     },
     footer: {
@@ -730,13 +730,13 @@ export const translations: Record<Language, TranslationContent> = {
     contact: {
       title: "Skontaktuj się",
       subtitle: "Gotowi uwiecznić swoje wyjątkowe chwile?",
-      address: "ul. Fotograficzna 123, Dzielnica Kreatywna, Nowy Jork, NY 10001",
-      phone: "+1 (555) 123-4567",
-      email: "hello@elenakowalski.com",
+      address: "Wolsztyn, 64-200, Polska",
+      phone: "+48 791 613 941",
+      email: "vitahushel@gmail.com",
       social: {
         whatsapp: "Napisz na WhatsApp",
         telegram: "Skontaktuj się przez Telegram",
-        instagram: "Śledź na Instagram"
+        instagram: "Śledź na Instagram @vitahushel"
       }
     },
     footer: {

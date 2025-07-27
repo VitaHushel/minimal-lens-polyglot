@@ -208,7 +208,7 @@ export const BookingSection: React.FC = () => {
                     type="tel"
                     {...register('phone')}
                     className="form-input"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+48 791 613 941"
                   />
                 </div>
 
