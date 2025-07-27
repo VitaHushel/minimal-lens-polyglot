@@ -306,22 +306,22 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Sarah & Michael",
           role: "Wedding Couple",
-          content: "Elena captured our wedding day perfectly! Her attention to detail and ability to make us feel comfortable resulted in the most beautiful photos we could have dreamed of. Every single shot tells the story of our love."
+          content: "Vita captured our wedding day perfectly! Her attention to detail and ability to make us feel comfortable resulted in the most beautiful photos we could have dreamed of. Every single shot tells the story of our love."
         },
         {
           name: "Jessica Thompson",
           role: "Mother of Two",
-          content: "Our family photo session with Elena was absolutely wonderful. She was so patient with our kids and managed to capture their personalities beautifully. We treasure these photos and will book with her again!"
+          content: "Our family photo session with Vita was absolutely wonderful. She was so patient with our kids and managed to capture their personalities beautifully. We treasure these photos and will book with her again!"
         },
         {
           name: "David Rodriguez",
           role: "Corporate Executive",
-          content: "Elena's professionalism and artistic eye made my headshot session a breeze. The photos she delivered exceeded my expectations and have opened many doors in my career. Highly recommend!"
+          content: "Vita's professionalism and artistic eye made my headshot session a breeze. The photos she delivered exceeded my expectations and have opened many doors in my career. Highly recommend!"
         },
         {
           name: "Anna & James",
           role: "Expecting Parents",
-          content: "Elena made our maternity shoot so special and comfortable. She guided us through every pose and captured the joy of this precious time in our lives. We can't wait to work with her for newborn photos!"
+          content: "Vita made our maternity shoot so special and comfortable. She guided us through every pose and captured the joy of this precious time in our lives. We can't wait to work with her for newborn photos!"
         }
       ]
     },
@@ -507,7 +507,7 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Сара та Майкл",
           role: "Весільна пара",
-          content: "Елена ідеально запечатала наш весільний день! Її увага до деталей і здатність заспокоїти нас призвели до найкрасивіших фотографій, про які ми могли мріяти. Кожен знімок розповідає історію нашого кохання."
+          content: "Віта ідеально запечатала наш весільний день! Її увага до деталей і здатність заспокоїти нас призвели до найкрасивіших фотографій, про які ми могли мріяти. Кожен знімок розповідає історію нашого кохання."
         },
         {
           name: "Джесіка Томпсон",
@@ -522,7 +522,7 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Анна та Джеймс",
           role: "Майбутні батьки",
-          content: "Елена зробила нашу фотосесію вагітності такою особливою та комфортною. Вона провела нас через кожну позу і запечатала радість цього дорогоцінного часу в нашому житті. Не можемо дочекатися роботи з нею для фото новонародженого!"
+          content: "Віта зробила нашу фотосесію вагітності такою особливою та комфортною. Вона провела нас через кожну позу і запечатала радість цього дорогоцінного часу в нашому житті. Не можемо дочекатися роботи з нею для фото новонародженого!"
         }
       ]
     },
@@ -708,12 +708,12 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Sarah & Michael",
           role: "Para młoda",
-          content: "Elena idealnie uwieczniła nasz dzień ślubu! Jej dbałość o szczegóły i umiejętność wprowadzenia nas w komfortową atmosferę zaowocowały najpiękniejszymi zdjęciami, o których mogliśmy marzyć. Każde ujęcie opowiada historię naszej miłości."
+          content: "Vita idealnie uwieczniła nasz dzień ślubu! Jej dbałość o szczegóły i umiejętność wprowadzenia nas w komfortową atmosferę zaowocowały najpiękniejszymi zdjęciami, o których mogliśmy marzyć. Każde ujęcie opowiada historię naszej miłości."
         },
         {
           name: "Jessica Thompson",
           role: "Mama dwójki dzieci",
-          content: "Nasza rodzinna sesja zdjęciowa z Eleną była absolutnie wspaniała. Była tak cierpliwa z naszymi dziećmi i zdołała pięknie uchwycić ich osobowości. Cenimy te zdjęcia i ponownie zarezerwujemy u niej sesję!"
+          content: "Nasza rodzinna sesja zdjęciowa z Vita była absolutnie wspaniała. Była tak cierpliwa z naszymi dziećmi i zdołała pięknie uchwycić ich osobowości. Cenimy te zdjęcia i ponownie zarezerwujemy u niej sesję!"
         },
         {
           name: "David Rodriguez",
@@ -723,7 +723,7 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Anna & James",
           role: "Przyszli rodzice",
-          content: "Elena sprawiła, że nasza sesja ciążowa była tak wyjątkowa i komfortowa. Prowadziła nas przez każdą pozę i uwieczniła radość z tego cennego czasu w naszym życiu. Nie możemy się doczekać współpracy z nią przy zdjęciach noworodka!"
+          content: "Vita sprawiła, że nasza sesja ciążowa była tak wyjątkowa i komfortowa. Prowadziła nas przez każdą pozę i uwieczniła radość z tego cennego czasu w naszym życiu. Nie możemy się doczekać współpracy z nią przy zdjęciach noworodka!"
         }
       ]
     },
