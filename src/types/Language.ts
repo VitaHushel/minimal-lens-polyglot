@@ -147,7 +147,7 @@ export interface TranslationContent {
 
 export const translations: Record<Language, TranslationContent> = {
   en: {
-    name: "Wiktoria Hushel",
+    name: "Vita Hushel",
     nav: {
       home: "Home",
       about: "About",
@@ -159,13 +159,13 @@ export const translations: Record<Language, TranslationContent> = {
       contact: "Contact"
     },
     hero: {
-      title: "Wiktoria Hushel",
+      title: "Vita Hushel",
       subtitle: "Capturing Life's Most Precious Moments with Artistic Elegance",
       cta: "Book Your Session Now"
     },
     about: {
       title: "About Me",
-      content: "Hello! My name is Wiktoria, and I'm a photographer — so delighted to welcome you to my website! I've been living in Poland for almost three years now, and before that, I lived with my family in Kyiv. My love for photography began in childhood — I photographed friends on film with a 'Kodak', capturing moments of life that I wanted to preserve for a long time. Later, after receiving my first scholarship, I bought a digital Olympus — and that was the first step towards something bigger. I've always been drawn to the ability to capture not just an image, but an emotion, a mood, warmth. Over time, through Instagram, I began sharing pieces of my life: everyday moments, food, atmosphere. At the same time, I was learning editing, searching for my style and sense of composition. I bought my first professional camera just a year ago. It was scary — but I knew dreams are worth pursuing. Today I have the most grateful clients and sincerely rejoice at every opportunity to give someone a memory for life. For me, photography is not just about a beautiful picture. It's about sincerity, attention, interaction. About your smiles, hugs, genuine moments that you want to preserve not only in your heart, but also in photos. I invite you to a photo session — I promise lots of light, warmth, and shots you'll want to return to."
+      content: "Hello! My name is Vita, and I'm a photographer — so delighted to welcome you to my website! I've been living in Poland for almost three years now, and before that, I lived with my family in Kyiv. My love for photography began in childhood — I photographed friends on film with a 'Kodak', capturing moments of life that I wanted to preserve for a long time. Later, after receiving my first scholarship, I bought a digital Olympus — and that was the first step towards something bigger. I've always been drawn to the ability to capture not just an image, but an emotion, a mood, warmth. Over time, through Instagram, I began sharing pieces of my life: everyday moments, food, atmosphere. At the same time, I was learning editing, searching for my style and sense of composition. I bought my first professional camera just a year ago. It was scary — but I knew dreams are worth pursuing. Today I have the most grateful clients and sincerely rejoice at every opportunity to give someone a memory for life. For me, photography is not just about a beautiful picture. It's about sincerity, attention, interaction. About your smiles, hugs, genuine moments that you want to preserve not only in your heart, but also in photos. I invite you to a photo session — I promise lots of light, warmth, and shots you'll want to return to."
     },
     portfolio: {
       title: "Portfolio",
@@ -342,7 +342,7 @@ export const translations: Record<Language, TranslationContent> = {
       backToTop: "Back to top"
     },
     meta: {
-      title: "Wiktoria Hushel - Professional Photographer",
+      title: "Vita Hushel - Professional Photographer",
       description: "Professional photographer specializing in capturing life's most precious moments with artistic elegance. Creating timeless memories that last a lifetime."
     }
   },
@@ -505,12 +505,12 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Історії від сімей та пар, яких мені довелося фотографувати з радістю",
       items: [
         {
-          name: "Сара та Майкл",
+          name: "Сара та Іван",
           role: "Весільна пара",
           content: "Віта ідеально запечатала наш весільний день! Її увага до деталей і здатність заспокоїти нас призвели до найкрасивіших фотографій, про які ми могли мріяти. Кожен знімок розповідає історію нашого кохання."
         },
         {
-          name: "Джесіка Томпсон",
+          name: "Джесіка Томек",
           role: "Мама двох дітей",
           content: "Наша сімейна фотосесія з Вітою була просто чудовою. Вона була такою терплячою з нашими дітьми і зуміла прекрасно передати їх особистості. Ми дорожимо цими фото і знову забронюємо у неї!"
         },
@@ -548,7 +548,7 @@ export const translations: Record<Language, TranslationContent> = {
     }
   },
   pl: {
-    name: "Wita Hushel",
+    name: "Wiktoria Hushel",
     nav: {
       home: "Główna",
       about: "O mnie",
@@ -560,7 +560,7 @@ export const translations: Record<Language, TranslationContent> = {
       contact: "Kontakt"
     },
     hero: {
-      title: "Wita Hushel",
+      title: "Wiktoria Hushel",
       subtitle: "Uwiecznianie najcenniejszych życiowych chwil z artystyczną elegancją",
       cta: "Zarezerwuj sesję"
     },
@@ -706,17 +706,17 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Historie od rodzin i par, które miałam radość fotografować",
       items: [
         {
-          name: "Sarah & Michael",
+          name: "Hanna & Michael",
           role: "Para młoda",
           content: "Wiktoria idealnie uwieczniła nasz dzień ślubu! Jej dbałość o szczegóły i umiejętność wprowadzenia nas w komfortową atmosferę zaowocowały najpiękniejszymi zdjęciami, o których mogliśmy marzyć. Każde ujęcie opowiada historię naszej miłości."
         },
         {
-          name: "Jessica Thompson",
+          name: "Jessica Tomek",
           role: "Mama dwójki dzieci",
           content: "Nasza rodzinna sesja zdjęciowa z Wiktoria była absolutnie wspaniała. Była tak cierpliwa z naszymi dziećmi i zdołała pięknie uchwycić ich osobowości. Cenimy te zdjęcia i ponownie zarezerwujemy u niej sesję!"
         },
         {
-          name: "David Rodriguez",
+          name: "David",
           role: "Dyrektor korporacyjny",
           content: "Profesjonalizm Wiktorii i artystyczne oko sprawiły, że moja sesja portretowa przebiegła bez problemu. Zdjęcia, które dostarczyła, przekroczyły moje oczekiwania i otworzyły wiele drzwi w mojej karierze. Gorąco polecam!"
         },
@@ -740,11 +740,11 @@ export const translations: Record<Language, TranslationContent> = {
       }
     },
     footer: {
-      copyright: "© 2024 Wita Hushel Photography. Wszystkie prawa zastrzeżone.",
+      copyright: "© 2024 Wiktoria Hushel Photography. Wszystkie prawa zastrzeżone.",
       backToTop: "Powrót na górę"
     },
     meta: {
-      title: "Wita Hushel - Profesjonalny fotograf",
+      title: "Wiktoria Hushel - Profesjonalny fotograf",
       description: "Profesjonalny fotograf specjalizujący się w uwiecznianiu najcenniejszych życiowych chwil z artystyczną elegancją. Tworzę ponadczasowe wspomnienia, które pozostają na całe życie."
     }
   }
