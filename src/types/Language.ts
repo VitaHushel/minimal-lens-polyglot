@@ -147,7 +147,7 @@ export interface TranslationContent {
 
 export const translations: Record<Language, TranslationContent> = {
   en: {
-    name: "Vita Hushel",
+    name: "Wiktoria Hushel",
     nav: {
       home: "Home",
       about: "About",
@@ -159,13 +159,13 @@ export const translations: Record<Language, TranslationContent> = {
       contact: "Contact"
     },
     hero: {
-      title: "Vita Hushel",
+      title: "Wiktoria Hushel",
       subtitle: "Capturing Life's Most Precious Moments with Artistic Elegance",
       cta: "Book Your Session Now"
     },
     about: {
       title: "About Me",
-      content: "Hello! My name is Vita, and I'm a photographer — so delighted to welcome you to my website! I've been living in Poland for almost three years now, and before that, I lived with my family in Kyiv. My love for photography began in childhood — I photographed friends on film with a 'Kodak', capturing moments of life that I wanted to preserve for a long time. Later, after receiving my first scholarship, I bought a digital Olympus — and that was the first step towards something bigger. I've always been drawn to the ability to capture not just an image, but an emotion, a mood, warmth. Over time, through Instagram, I began sharing pieces of my life: everyday moments, food, atmosphere. At the same time, I was learning editing, searching for my style and sense of composition. I bought my first professional camera just a year ago. It was scary — but I knew dreams are worth pursuing. Today I have the most grateful clients and sincerely rejoice at every opportunity to give someone a memory for life. For me, photography is not just about a beautiful picture. It's about sincerity, attention, interaction. About your smiles, hugs, genuine moments that you want to preserve not only in your heart, but also in photos. I invite you to a photo session — I promise lots of light, warmth, and shots you'll want to return to."
+      content: "Hello! My name is Wiktoria, and I'm a photographer — so delighted to welcome you to my website! I've been living in Poland for almost three years now, and before that, I lived with my family in Kyiv. My love for photography began in childhood — I photographed friends on film with a 'Kodak', capturing moments of life that I wanted to preserve for a long time. Later, after receiving my first scholarship, I bought a digital Olympus — and that was the first step towards something bigger. I've always been drawn to the ability to capture not just an image, but an emotion, a mood, warmth. Over time, through Instagram, I began sharing pieces of my life: everyday moments, food, atmosphere. At the same time, I was learning editing, searching for my style and sense of composition. I bought my first professional camera just a year ago. It was scary — but I knew dreams are worth pursuing. Today I have the most grateful clients and sincerely rejoice at every opportunity to give someone a memory for life. For me, photography is not just about a beautiful picture. It's about sincerity, attention, interaction. About your smiles, hugs, genuine moments that you want to preserve not only in your heart, but also in photos. I invite you to a photo session — I promise lots of light, warmth, and shots you'll want to return to."
     },
     portfolio: {
       title: "Portfolio",
@@ -306,22 +306,22 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Sarah & Michael",
           role: "Wedding Couple",
-          content: "Vita captured our wedding day perfectly! Her attention to detail and ability to make us feel comfortable resulted in the most beautiful photos we could have dreamed of. Every single shot tells the story of our love."
+          content: "Wiktoria captured our wedding day perfectly! Her attention to detail and ability to make us feel comfortable resulted in the most beautiful photos we could have dreamed of. Every single shot tells the story of our love."
         },
         {
           name: "Jessica Thompson",
           role: "Mother of Two",
-          content: "Our family photo session with Vita was absolutely wonderful. She was so patient with our kids and managed to capture their personalities beautifully. We treasure these photos and will book with her again!"
+          content: "Our family photo session with Wiktoria was absolutely wonderful. She was so patient with our kids and managed to capture their personalities beautifully. We treasure these photos and will book with her again!"
         },
         {
           name: "David Rodriguez",
           role: "Corporate Executive",
-          content: "Vita's professionalism and artistic eye made my headshot session a breeze. The photos she delivered exceeded my expectations and have opened many doors in my career. Highly recommend!"
+          content: "Wiktoria's professionalism and artistic eye made my headshot session a breeze. The photos she delivered exceeded my expectations and have opened many doors in my career. Highly recommend!"
         },
         {
           name: "Anna & James",
           role: "Expecting Parents",
-          content: "Vita made our maternity shoot so special and comfortable. She guided us through every pose and captured the joy of this precious time in our lives. We can't wait to work with her for newborn photos!"
+          content: "Wiktoria made our maternity shoot so special and comfortable. She guided us through every pose and captured the joy of this precious time in our lives. We can't wait to work with her for newborn photos!"
         }
       ]
     },
@@ -330,19 +330,19 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Ready to capture your special moments?",
       address: "Wolsztyn, 64-200, Poland",
       phone: "+48 791 613 941",
-      email: "vitahushel@gmail.com",
+      email: "Wiktoriahushel@gmail.com",
       social: {
         whatsapp: "Message on WhatsApp",
         telegram: "Contact via Telegram",
-        instagram: "Follow on Instagram @vitahushel"
+        instagram: "Follow on Instagram @Wiktoriahushel"
       }
     },
     footer: {
-      copyright: "© 2024 Vita Hushel Photography. All rights reserved.",
+      copyright: "© 2024 Wiktoria Hushel Photography. All rights reserved.",
       backToTop: "Back to top"
     },
     meta: {
-      title: "Vita Hushel - Professional Photographer",
+      title: "Wiktoria Hushel - Professional Photographer",
       description: "Professional photographer specializing in capturing life's most precious moments with artistic elegance. Creating timeless memories that last a lifetime."
     }
   },
@@ -531,15 +531,15 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Готові зафіксувати ваші особливі моменти?",
       address: "Вольштин, 64-200, Польща",
       phone: "+48 791 613 941",
-      email: "vitahushel@gmail.com",
+      email: "Wiktoriahushel@gmail.com",
       social: {
         whatsapp: "Написати в WhatsApp",
         telegram: "Зв'язатися через Telegram",
-        instagram: "Підписатися в Instagram @vitahushel"
+        instagram: "Підписатися в Instagram @Wiktoriahushel"
       }
     },
     footer: {
-      copyright: "© 2024 Віта Гушель Фотографія. Всі права захищені.",
+      copyright: "© 2024 Віта Гушель Фото. Всі права захищені.",
       backToTop: "Повернутися наверх"
     },
     meta: {
@@ -708,12 +708,12 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Sarah & Michael",
           role: "Para młoda",
-          content: "Vita idealnie uwieczniła nasz dzień ślubu! Jej dbałość o szczegóły i umiejętność wprowadzenia nas w komfortową atmosferę zaowocowały najpiękniejszymi zdjęciami, o których mogliśmy marzyć. Każde ujęcie opowiada historię naszej miłości."
+          content: "Wiktoria idealnie uwieczniła nasz dzień ślubu! Jej dbałość o szczegóły i umiejętność wprowadzenia nas w komfortową atmosferę zaowocowały najpiękniejszymi zdjęciami, o których mogliśmy marzyć. Każde ujęcie opowiada historię naszej miłości."
         },
         {
           name: "Jessica Thompson",
           role: "Mama dwójki dzieci",
-          content: "Nasza rodzinna sesja zdjęciowa z Vita była absolutnie wspaniała. Była tak cierpliwa z naszymi dziećmi i zdołała pięknie uchwycić ich osobowości. Cenimy te zdjęcia i ponownie zarezerwujemy u niej sesję!"
+          content: "Nasza rodzinna sesja zdjęciowa z Wiktoria była absolutnie wspaniała. Była tak cierpliwa z naszymi dziećmi i zdołała pięknie uchwycić ich osobowości. Cenimy te zdjęcia i ponownie zarezerwujemy u niej sesję!"
         },
         {
           name: "David Rodriguez",
@@ -723,7 +723,7 @@ export const translations: Record<Language, TranslationContent> = {
         {
           name: "Anna & James",
           role: "Przyszli rodzice",
-          content: "Vita sprawiła, że nasza sesja ciążowa była tak wyjątkowa i komfortowa. Prowadziła nas przez każdą pozę i uwieczniła radość z tego cennego czasu w naszym życiu. Nie możemy się doczekać współpracy z nią przy zdjęciach noworodka!"
+          content: "Wiktoria sprawiła, że nasza sesja ciążowa była tak wyjątkowa i komfortowa. Prowadziła nas przez każdą pozę i uwieczniła radość z tego cennego czasu w naszym życiu. Nie możemy się doczekać współpracy z nią przy zdjęciach noworodka!"
         }
       ]
     },
@@ -732,11 +732,11 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Gotowi uwiecznić swoje wyjątkowe chwile?",
       address: "Wolsztyn, 64-200, Polska",
       phone: "+48 791 613 941",
-      email: "vitahushel@gmail.com",
+      email: "Wiktoriahushel@gmail.com",
       social: {
         whatsapp: "Napisz na WhatsApp",
         telegram: "Skontaktuj się przez Telegram",
-        instagram: "Śledź na Instagram @vitahushel"
+        instagram: "Śledź na Instagram @Wiktoriahushel"
       }
     },
     footer: {
