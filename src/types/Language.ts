@@ -461,7 +461,7 @@ export const translations: Record<Language, TranslationContent> = {
         servicePlaceholder: "Оберіть послугу",
         timePlaceholder: "Оберіть час",
         agreement: "Відправляючи цю форму, ви погоджуєтеся на контакт щодо вашого запиту з фотографії.",
-        validation: {
+        validation: {.
           serviceRequired: "Будь ласка, оберіть тип послуги",
           dateRequired: "Будь ласка, оберіть дату",
           timeRequired: "Будь ласка, оберіть час"
