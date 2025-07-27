@@ -177,7 +177,7 @@ export const translations: Record<Language, TranslationContent> = {
       packages: {
         portrait: {
           title: "Individual Photo Session",
-          price: "$60",
+          price: "250 zł",
           description: "50 minutes duration",
           features: [
             "40+ edited photos",
@@ -187,7 +187,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         family: {
           title: "Family Photo Session", 
-          price: "$60",
+          price: "250 zł",
           description: "50 minutes duration",
           features: [
             "40+ edited photos",
@@ -197,7 +197,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         children: {
           title: "Children Photo Session",
-          price: "$60", 
+          price: "250 zł", 
           description: "50 minutes duration",
           features: [
             "40+ edited photos",
@@ -207,7 +207,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         wedding: {
           title: "Wedding Photography",
-          price: "Package 1: $50 | Package 2: $70",
+          price: "Package 1: 200 zł | Package 2: 300 zł",
           description: "Package 1: Wedding walk 30 min (40+ photos) | Package 2: Registry + walk 30 min (70+ photos)",
           features: [
             "Package 1: Wedding walk 30 min",
@@ -218,7 +218,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         event: {
           title: "Celebration Photography",
-          price: "Package 1: $60 | Package 2: $95",
+          price: "Package 1: 250 zł | Package 2: 400 zł",
           description: "Package 1: Photo zone session (50+ photos) | Package 2: Photo zone + 1 hour celebration (100+ photos)",
           features: [
             "Package 1: Photo zone session 50 min",
@@ -229,7 +229,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         studio: {
           title: "Studio Photography",
-          price: "$70",
+          price: "300 zł",
           description: "Up to 1 hour duration",
           features: [
             "40+ edited photos",
@@ -377,7 +377,7 @@ export const translations: Record<Language, TranslationContent> = {
       packages: {
         portrait: {
           title: "Індивідуальна фотосесія",
-          price: "250 zł | 2 330 ₴ | $60",
+          price: "250 zł",
           description: "Тривалість 50 хв",
           features: [
             "40+ оброблених фото",
@@ -387,7 +387,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         family: {
           title: "Сімейна фотосесія",
-          price: "250 zł | 2 330 ₴ | $60",
+          price: "250 zł",
           description: "Тривалість 50 хв",
           features: [
             "40+ оброблених фотографій",
@@ -397,7 +397,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         children: {
           title: "Дитяча фотосесія",
-          price: "250 zł | 2 330 ₴ | $60",
+          price: "250 zł",
           description: "Тривалість 50 хв",
           features: [
             "40+ оброблених фотографій",
@@ -407,7 +407,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         wedding: {
           title: "Весільна фотозйомка",
-          price: "Пакет 1: 200 zł | 1 870 ₴ | $50 | Пакет 2: 300 zł | 2 800 ₴ | $70",
+          price: "Пакет 1: 200 zł | Пакет 2: 300 zł",
           description: "Пакет 1: Весільна прогулянка 30 хв (40+ фото) | Пакет 2: Фотозйомка розпису + прогулянка 30 хв (70+ фото)",
           features: [
             "Пакет 1: Весільна прогулянка 30 хв",
@@ -418,7 +418,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         event: {
           title: "Фотозйомка святкування",
-          price: "Пакет 1: 250 zł | 2 330 ₴ | $60 | Пакет 2: 400 zł | 3 730 ₴ | $95",
+          price: "Пакет 1: 250 zł | Пакет 2: 400 zł",
           description: "Пакет 1: Фотосесія коло фотозони (50+ фото) | Пакет 2: Фотосесія коло фотозони + 1 година фотозйомки святкування (100+ фото)",
           features: [
             "Пакет 1: Фотосесія коло фотозони",
@@ -430,7 +430,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         studio: {
           title: "Студійна фотозйомка",
-          price: "300 zł | 2 800 ₴ | $70",
+          price: "300 zł",
           description: "Тривалість до 1 години",
           features: [
             "40+ оброблених фотографій",
@@ -578,7 +578,7 @@ export const translations: Record<Language, TranslationContent> = {
       packages: {
         portrait: {
           title: "Sesja indywidualna",
-          price: "250 zł | 2 330 ₴ | $60",
+          price: "250 zł",
           description: "Czas trwania 50 min",
           features: [
             "40+ obrobionych zdjęć",
@@ -588,7 +588,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         family: {
           title: "Sesja rodzinna",
-          price: "250 zł | 2 330 ₴ | $60",
+          price: "250 zł",
           description: "Czas trwania 50 min",
           features: [
             "40+ obrobionych zdjęć",
@@ -598,7 +598,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         children: {
           title: "Sesja dziecięca",
-          price: "250 zł | 2 330 ₴ | $60",
+          price: "250 zł",
           description: "Czas trwania 50 min",
           features: [
             "40+ obrobionych zdjęć",
@@ -608,7 +608,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         wedding: {
           title: "Fotografia ślubna",
-          price: "Pakiet 1: 200 zł | 1 870 ₴ | $50 | Pakiet 2: 300 zł | 2 800 ₴ | $70",
+          price: "Pakiet 1: 200 zł | Pakiet 2: 300 zł",
           description: "Pakiet 1: Spacer ślubny 30 min (40+ zdjęć) | Pakiet 2: Ślub cywilny + spacer 30 min (70+ zdjęć)",
           features: [
             "Pakiet 1: Spacer ślubny 30 min",
@@ -619,7 +619,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         event: {
           title: "Fotografia uroczystości",
-          price: "Pakiet 1: 250 zł | 2 330 ₴ | $60 | Pakiet 2: 400 zł | 3 730 ₴ | $95",
+          price: "Pakiet 1: 250 zł | Pakiet 2: 400 zł",
           description: "Pakiet 1: Sesja przy strefie foto (50+ zdjęć) | Pakiet 2: Strefa foto + 1 godzina uroczystości (100+ zdjęć)",
           features: [
             "Pakiet 1: Sesja przy strefie foto",
@@ -631,7 +631,7 @@ export const translations: Record<Language, TranslationContent> = {
         },
         studio: {
           title: "Sesja studyjna",
-          price: "300 zł | 2 800 ₴ | $70",
+          price: "300 zł",
           description: "Czas trwania do 1 godziny",
           features: [
             "40+ obrobionych zdjęć",
