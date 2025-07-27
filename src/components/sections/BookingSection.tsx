@@ -162,7 +162,7 @@ export const BookingSection: React.FC = () => {
                       minLength: { value: 2, message: 'Name must be at least 2 characters' }
                     })}
                     className="form-input"
-                    placeholder="John Doe"
+                    placeholder="Name "
                   />
                   {errors.name && (
                     <p className="text-destructive text-xs mt-1">{errors.name.message}</p>
@@ -187,7 +187,7 @@ export const BookingSection: React.FC = () => {
                       }
                     })}
                     className="form-input"
-                    placeholder="john@example.com"
+                    placeholder="hanna@example.com"
                   />
                   {errors.email && (
                     <p className="text-destructive text-xs mt-1">{errors.email.message}</p>
