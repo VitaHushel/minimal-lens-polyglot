@@ -98,7 +98,7 @@ export const ContactSection: React.FC = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-foreground mb-2">Studio Location</h3>
+                  <h3 className="font-medium text-foreground mb-2"> Location</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {t.contact.address}
                   </p>
@@ -163,7 +163,7 @@ export const ContactSection: React.FC = () => {
               <div className="w-full h-full bg-soft-gray flex items-center justify-center relative">
                 <div className="text-center">
                   <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-lg font-medium text-foreground mb-2">Studio Location</h3>
+                  <h3 className="text-lg font-medium text-foreground mb-2">Location</h3>
                   <p className="text-muted-foreground text-sm max-w-xs">
                     Interactive map will be embedded here using Google Maps API
                   </p>
@@ -192,7 +192,7 @@ export const ContactSection: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Elena Kowalski Photography Studio Location"
+                title="Vita Hushel Photography Location"
               />
               */}
             </div>
