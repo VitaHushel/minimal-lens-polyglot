@@ -1,158 +1,62 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useLanguage } from '../../contexts/LanguageContext';
-import { Card, CardContent } from '../ui/card';
-import { Button } from '../ui/button';
-import { Calendar, ArrowRight } from 'lucide-react';
+import blog1 from "@/assets/blog/natural-light.jpg";
+import blog2 from "@/assets/blog/wedding-tips.jpg";
+import blog3 from "@/assets/blog/family-guide.jpg";
 
-// Імпорт картинок для постів
-import weddingTips from '../../assets/blog/wedding-tips.jpg';
-import naturalLight from '../../assets/blog/natural-light.jpg';
-import familyGuide from '../../assets/blog/family-guide.jpg';
+const posts = [
+  {
+    image: blog1,
+    title: "10 порад для ідеальної фотосесії",
+    description:
+      "Дізнайтеся, як підготуватися до фотосесії, щоб отримати найкращі результати.",
+    link: "/blog/post-1.html",
+  },
+  {
+    image: blog2,
+    title: "Весільна зйомка: що варто знати?",
+    description:
+      "Практичні поради для молодят, які планують зйомку найважливішого дня.",
+    link: "/blog/post-2.html",
+  },
+  {
+    image: blog3,
+    title: "Сімейні фото: як зробити їх незабутніми",
+    description:
+      "Кращі ідеї та поради для створення теплих і душевних сімейних фотографій.",
+    link: "/blog/post-3.html",
+  },
+];
 
-const blogImages = [weddingTips, naturalLight, familyGuide];
-
-export const BlogSection: React.FC = () => {
-  const { t } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Масив постів з мінімальними даними
-  const posts = [
-    {
-      title: "Основи фотографії для початківців",
-      slug: "post1",
-      excerpt: "Фотографія — це мистецтво і техніка одночасно. У цій статті ми розглянемо базові поняття...",
-      date: "28 липня 2025",
-      category: "Фотографія",
-    },
-    {
-      title: "Поради з весільної фотографії",
-      slug: "post2",
-      excerpt: "Як зловити найкращі моменти на весіллі? Розглянемо корисні техніки та поради...",
-      date: "15 липня 2025",
-      category: "Весілля",
-    },
-    {
-      title: "Сімейні фотосесії: секрети успіху",
-      slug: "post3",
-      excerpt: "Створення теплих і живих фотографій для сім’ї — важливе завдання. Ось кілька ідей для натхнення...",
-      date: "10 липня 2025",
-      category: "Сім’я",
-    },
-  ];
-
+export default function BlogSection() {
   return (
-    <section
-      id="blog"
-      ref={sectionRef}
-      className="py-20 lg:py-32 section-gradient"
-    >
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Заголовок блоку */}
-        <div
-          className={`text-center mb-16 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <h2 className="text-3xl lg:text-4xl font-elegant font-semibold text-primary mb-4">
-            {t.blog.title}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.blog.subtitle}
-          </p>
-        </div>
-
-        {/* Сітка постів */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="blog" className="py-16 bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">
+          Блог
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
           {posts.map((post, index) => (
-            <Card
-              key={post.slug}
-              className={`group overflow-hidden shadow-soft hover:shadow-medium transition-all duration-500 border-0 bg-card ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              {/* Зображення поста */}
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={blogImages[index]}
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Контент поста */}
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
-                  <span className="px-3 py-1 bg-accent rounded-full font-medium">
-                    {post.category}
-                  </span>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{post.date}</span>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-elegant font-semibold text-primary mb-3 line-clamp-2 group-hover:text-charcoal transition-colors duration-300">
+            <div key={index} className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+              <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
                   {post.title}
                 </h3>
-
-                <p className="text-muted-foreground mb-4 line-clamp-3">
-                  {post.excerpt}
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {post.description}
                 </p>
-
-                {/* Посилання "Читати далі" */}
                 <a
-                  href={`/blog/${post.slug}.html`}
-                  className="inline-flex items-center text-primary hover:text-charcoal font-medium"
-                  aria-label={`Read more about ${post.title}`}
+                  href={post.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline dark:text-blue-400"
                 >
-                  {t.blog.readMore}
-                  <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+                  Читати далі →
                 </a>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
-        </div>
-
-        {/* Кнопка перегляду всіх постів */}
-        <div
-          className={`text-center mt-12 transition-all duration-700 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <a href="/blog" target="_blank" rel="noopener noreferrer">
-            <Button
-              variant="outline"
-              size="lg"
-              className="hero-button px-8 py-3 text-primary hover:text-primary-foreground border-primary hover:bg-primary"
-            >
-              {t.blog.viewAllPosts || 'View All Posts'}
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </a>
         </div>
       </div>
     </section>
   );
-};
+}
