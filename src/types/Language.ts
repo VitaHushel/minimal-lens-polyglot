@@ -107,6 +107,11 @@ export interface TranslationContent {
     title: string;
     subtitle: string;
     readMore: string;
+    viewAllPosts: string;
+    filterBy: string;
+    allPosts: string;
+    previous: string;
+    next: string;
     posts: {
       title: string;
       excerpt: string;
@@ -278,6 +283,11 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Photography Blog",
       subtitle: "Tips, stories, and inspiration from behind the lens",
       readMore: "Read More",
+      viewAllPosts: "View All Posts",
+      filterBy: "Filter by category:",
+      allPosts: "All Posts",
+      previous: "Previous",
+      next: "Next",
       posts: [
         {
           title: "5 Tips for Perfect Wedding Photos",
@@ -479,6 +489,11 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Фото блог",
       subtitle: "Поради, історії та натхнення з-за об'єктива",
       readMore: "Читати далі",
+      viewAllPosts: "Переглянути всі пости",
+      filterBy: "Фільтрувати за категорією:",
+      allPosts: "Всі пости",
+      previous: "Попередня",
+      next: "Наступна",
       posts: [
         {
           title: "5 порад для ідеальних весільних фото",
@@ -680,6 +695,11 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Blog fotograficzny",
       subtitle: "Porady, historie i inspiracje zza obiektywu",
       readMore: "Czytaj więcej",
+      viewAllPosts: "Zobacz wszystkie posty",
+      filterBy: "Filtruj według kategorii:",
+      allPosts: "Wszystkie posty",
+      previous: "Poprzedni",
+      next: "Następny",
       posts: [
         {
           title: "5 wskazówek do idealnych zdjęć ślubnych",

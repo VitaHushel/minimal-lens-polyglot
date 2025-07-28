@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
@@ -116,14 +117,16 @@ export const BlogSection: React.FC = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <Button
-            variant="outline"
-            size="lg"
-            className="hero-button px-8 py-3 text-primary hover:text-primary-foreground border-primary hover:bg-primary"
-          >
-            View All Posts
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
+          <Link to="/blog">
+            <Button
+              variant="outline"
+              size="lg"
+              className="hero-button px-8 py-3 text-primary hover:text-primary-foreground border-primary hover:bg-primary"
+            >
+              {t.blog.viewAllPosts || 'View All Posts'}
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

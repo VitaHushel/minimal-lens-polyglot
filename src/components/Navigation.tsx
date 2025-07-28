@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { LanguageSelector } from './LanguageSelector';
@@ -19,18 +20,22 @@ export const Navigation: React.FC = () => {
   }, []);
 
   const navItems = [
-    { key: 'home', href: '#hero' },
-    { key: 'about', href: '#about' },
-    { key: 'portfolio', href: '#portfolio' },
-    { key: 'prices', href: '#prices' },
-    { key: 'booking', href: '#booking' },
-    { key: 'testimonials', href: '#testimonials' },
-    { key: 'blog', href: '#blog' },
-    { key: 'contact', href: '#contact' },
+    { key: 'home', href: '#hero', isRoute: false },
+    { key: 'about', href: '#about', isRoute: false },
+    { key: 'portfolio', href: '#portfolio', isRoute: false },
+    { key: 'prices', href: '#prices', isRoute: false },
+    { key: 'booking', href: '#booking', isRoute: false },
+    { key: 'testimonials', href: '#testimonials', isRoute: false },
+    { key: 'blog', href: '/blog', isRoute: true },
+    { key: 'contact', href: '#contact', isRoute: false },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, isRoute: boolean) => {
     setIsMobileMenuOpen(false);
+    if (isRoute) {
+      // Handle route navigation via Link component
+      return;
+    }
     const element = document.querySelector(href) as HTMLElement;
     if (element) {
       const offset = 80; // Account for fixed header height
@@ -55,7 +60,7 @@ export const Navigation: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <button 
-              onClick={() => handleNavClick('#hero')}
+              onClick={() => handleNavClick('#hero', false)}
               className="text-xl lg:text-2xl font-elegant font-semibold text-primary hover:text-primary/80 transition-colors"
             >
               {t.name}
@@ -65,13 +70,23 @@ export const Navigation: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.key}
-                onClick={() => handleNavClick(item.href)}
-                className="nav-link text-sm font-medium"
-              >
-                {t.nav[item.key as keyof typeof t.nav]}
-              </button>
+              item.isRoute ? (
+                <Link
+                  key={item.key}
+                  to={item.href}
+                  className="nav-link text-sm font-medium"
+                >
+                  {t.nav[item.key as keyof typeof t.nav]}
+                </Link>
+              ) : (
+                <button
+                  key={item.key}
+                  onClick={() => handleNavClick(item.href, item.isRoute)}
+                  className="nav-link text-sm font-medium"
+                >
+                  {t.nav[item.key as keyof typeof t.nav]}
+                </button>
+              )
             ))}
             <LanguageSelector />
           </div>
@@ -100,13 +115,24 @@ export const Navigation: React.FC = () => {
           <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border shadow-medium">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
-                <button
-                  key={item.key}
-                  onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left text-foreground/80 hover:text-foreground font-medium py-2 transition-colors"
-                >
-                  {t.nav[item.key as keyof typeof t.nav]}
-                </button>
+                item.isRoute ? (
+                  <Link
+                    key={item.key}
+                    to={item.href}
+                    className="block w-full text-left text-foreground/80 hover:text-foreground font-medium py-2 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {t.nav[item.key as keyof typeof t.nav]}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.key}
+                    onClick={() => handleNavClick(item.href, item.isRoute)}
+                    className="block w-full text-left text-foreground/80 hover:text-foreground font-medium py-2 transition-colors"
+                  >
+                    {t.nav[item.key as keyof typeof t.nav]}
+                  </button>
+                )
               ))}
             </div>
           </div>
