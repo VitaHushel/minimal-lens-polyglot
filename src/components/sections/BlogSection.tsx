@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
+import { Button } from '../ui/button';
 import { Calendar, ArrowRight } from 'lucide-react';
 
-// Імпорт зображень для постів
+// Імпорт картинок для постів
 import weddingTips from '../../assets/blog/wedding-tips.jpg';
 import naturalLight from '../../assets/blog/natural-light.jpg';
 import familyGuide from '../../assets/blog/family-guide.jpg';
@@ -34,6 +33,7 @@ export const BlogSection: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Масив постів з мінімальними даними
   const posts = [
     {
       title: "Основи фотографії для початківців",
@@ -65,6 +65,7 @@ export const BlogSection: React.FC = () => {
       className="py-20 lg:py-32 section-gradient"
     >
       <div className="container mx-auto px-4 lg:px-8">
+        {/* Заголовок блоку */}
         <div
           className={`text-center mb-16 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -78,15 +79,17 @@ export const BlogSection: React.FC = () => {
           </p>
         </div>
 
+        {/* Сітка постів */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, index) => (
             <Card
-              key={index}
+              key={post.slug}
               className={`group overflow-hidden shadow-soft hover:shadow-medium transition-all duration-500 border-0 bg-card ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
+              {/* Зображення поста */}
               <div className="aspect-[16/10] overflow-hidden">
                 <img
                   src={blogImages[index]}
@@ -96,6 +99,7 @@ export const BlogSection: React.FC = () => {
                 />
               </div>
 
+              {/* Контент поста */}
               <CardContent className="p-6">
                 <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
                   <span className="px-3 py-1 bg-accent rounded-full font-medium">
@@ -115,25 +119,29 @@ export const BlogSection: React.FC = () => {
                   {post.excerpt}
                 </p>
 
-                <Link
-                  to={`/blog/${post.slug}.html`}
+                {/* Посилання "Читати далі" */}
+                <a
+                  href={`/blog/${post.slug}.html`}
                   className="inline-flex items-center text-primary hover:text-charcoal font-medium"
                   aria-label={`Read more about ${post.title}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {t.blog.readMore}
                   <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                </a>
               </CardContent>
             </Card>
           ))}
         </div>
 
+        {/* Кнопка перегляду всіх постів */}
         <div
           className={`text-center mt-12 transition-all duration-700 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <Link to="/blog">
+          <a href="/blog" target="_blank" rel="noopener noreferrer">
             <Button
               variant="outline"
               size="lg"
@@ -142,7 +150,7 @@ export const BlogSection: React.FC = () => {
               {t.blog.viewAllPosts || 'View All Posts'}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>
