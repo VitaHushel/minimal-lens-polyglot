@@ -34,7 +34,12 @@ const BlogSection = () => (
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-600 mb-4">{description}</p>
             <Button variant="outline" asChild>
-              <a href={`/blog/${slug}.html`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`/blog/${slug}.html`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Читати далі: ${title}`}
+              >
                 Читати далі
               </a>
             </Button>
