@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { LanguageSelector } from './LanguageSelector';
@@ -7,6 +7,8 @@ import { Button } from './ui/button';
 
 export const Navigation: React.FC = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -36,6 +38,14 @@ export const Navigation: React.FC = () => {
       // Handle route navigation via Link component
       return;
     }
+    
+    // If we're not on the home page, navigate to home first with the anchor
+    if (location.pathname !== '/') {
+      navigate(`/${href}`);
+      return;
+    }
+    
+    // If we're on home page, scroll to the element
     const element = document.querySelector(href) as HTMLElement;
     if (element) {
       const offset = 80; // Account for fixed header height
