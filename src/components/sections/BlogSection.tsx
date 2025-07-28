@@ -1,56 +1,48 @@
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-interface BlogPost {
-  title: string;
-  description: string;
-  image: string;
-  slug: string;
-}
-
-const blogPosts: BlogPost[] = [
+const posts = [
   {
-    title: '10 порад для ідеального весільного фото',
-    description: 'Як підготуватись до весільної зйомки та отримати незабутні фото.',
-    image: '/blog/wedding-tips.jpg',
-    slug: 'post-1',
+    title: "Поради для ідеального весільного фото",
+    description: "Дізнайтесь, як зробити день весілля незабутнім на фотографіях.",
+    image: "/blog/wedding-tips.jpg",
+    slug: "post-1",
   },
   {
-    title: 'Сімейна фотосесія: як зробити її легкою та приємною',
-    description: 'Поради для комфортної зйомки з дітьми та батьками.',
-    image: '/blog/family-guide.jpg',
-    slug: 'post-2',
+    title: "Як вибрати природне світло",
+    description: "Поради для портретної зйомки з натуральним освітленням.",
+    image: "/blog/natural-light.jpg",
+    slug: "post-2",
   },
   {
-    title: 'Працюємо з природним світлом',
-    description: 'Чому природне освітлення — ваш найкращий друг у портретній зйомці.',
-    image: '/blog/natural-light.jpg',
-    slug: 'post-3',
+    title: "Сімейна фотосесія: як підготуватись",
+    description: "Гід для сімей, які хочуть зберегти теплі моменти.",
+    image: "/blog/family-guide.jpg",
+    slug: "post-3",
   },
 ];
 
-const BlogSection = () => {
-  return (
-    <section className="py-16 px-4 md:px-12 bg-white dark:bg-gray-950" id="blog">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">Блог</h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {blogPosts.map((post, index) => (
-            <Link to={`/blog/${post.slug}`} key={index} className="group block rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="p-4 bg-white dark:bg-gray-900">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{post.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{post.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+const BlogSection = () => (
+  <section className="py-10 px-4 md:px-12 lg:px-24" id="blog">
+    <h2 className="text-3xl font-bold mb-6">Блог</h2>
+    <div className="grid gap-6 md:grid-cols-3">
+      {posts.map(({ title, description, image, slug }) => (
+        <Card key={slug} className="overflow-hidden">
+          <img src={image} alt={title} className="w-full h-48 object-cover" />
+          <CardContent className="p-4">
+            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <p className="text-gray-600 mb-4">{description}</p>
+            <Button variant="outline" asChild>
+              <a href={`/blog/${slug}.html`} target="_blank" rel="noopener noreferrer">
+                Читати далі
+              </a>
+            </Button>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </section>
+);
 
 export default BlogSection;
