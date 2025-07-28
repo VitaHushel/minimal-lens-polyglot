@@ -1,62 +1,56 @@
-import blog1 from "@/assets/blog/natural-light.jpg";
-import blog2 from "@/assets/blog/wedding-tips.jpg";
-import blog3 from "@/assets/blog/family-guide.jpg";
+import { Link } from 'react-router-dom';
 
-const posts = [
+interface BlogPost {
+  title: string;
+  description: string;
+  image: string;
+  slug: string;
+}
+
+const blogPosts: BlogPost[] = [
   {
-    image: blog1,
-    title: "10 порад для ідеальної фотосесії",
-    description:
-      "Дізнайтеся, як підготуватися до фотосесії, щоб отримати найкращі результати.",
-    link: "/blog/post-1.html",
+    title: '10 порад для ідеального весільного фото',
+    description: 'Як підготуватись до весільної зйомки та отримати незабутні фото.',
+    image: '/blog/wedding-tips.jpg',
+    slug: 'post-1',
   },
   {
-    image: blog2,
-    title: "Весільна зйомка: що варто знати?",
-    description:
-      "Практичні поради для молодят, які планують зйомку найважливішого дня.",
-    link: "/blog/post-2.html",
+    title: 'Сімейна фотосесія: як зробити її легкою та приємною',
+    description: 'Поради для комфортної зйомки з дітьми та батьками.',
+    image: '/blog/family-guide.jpg',
+    slug: 'post-2',
   },
   {
-    image: blog3,
-    title: "Сімейні фото: як зробити їх незабутніми",
-    description:
-      "Кращі ідеї та поради для створення теплих і душевних сімейних фотографій.",
-    link: "/blog/post-3.html",
+    title: 'Працюємо з природним світлом',
+    description: 'Чому природне освітлення — ваш найкращий друг у портретній зйомці.',
+    image: '/blog/natural-light.jpg',
+    slug: 'post-3',
   },
 ];
 
-export default function BlogSection() {
+const BlogSection = () => {
   return (
-    <section id="blog" className="py-16 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">
-          Блог
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
-            <div key={index} className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-              <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {post.description}
-                </p>
-                <a
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline dark:text-blue-400"
-                >
-                  Читати далі →
-                </a>
+    <section className="py-16 px-4 md:px-12 bg-white dark:bg-gray-950" id="blog">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">Блог</h2>
+        <div className="grid gap-8 md:grid-cols-3">
+          {blogPosts.map((post, index) => (
+            <Link to={`/blog/${post.slug}`} key={index} className="group block rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="p-4 bg-white dark:bg-gray-900">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{post.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{post.description}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default BlogSection;
