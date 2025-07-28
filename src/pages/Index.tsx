@@ -6,25 +6,25 @@ import { PortfolioSection } from '../components/sections/PortfolioSection';
 import { PricesSection } from '../components/sections/PricesSection';
 import { BookingSection } from '../components/sections/BookingSection';
 import { TestimonialsSection } from '../components/sections/TestimonialsSection';
-import { BlogSection } from '../components/sections/BlogSection';
+import { BlogSection } from '../components/sections/BlogSection';  // named export
 import { ContactSection } from '../components/sections/ContactSection';
 import { Footer } from '../components/Footer';
 import { BackToTop } from '../components/BackToTop';
 
-const Index = () => {
+const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-        <main>
-          <HeroSection />
-          <AboutSection />
-          <PortfolioSection />
-          <PricesSection />
-          <BookingSection />
-          <TestimonialsSection />
-          <BlogSection />
-          <ContactSection />
-        </main>
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <PortfolioSection />
+        <PricesSection />
+        <BookingSection />
+        <TestimonialsSection />
+        <BlogSection />
+        <ContactSection />
+      </main>
       <Footer />
       <BackToTop />
     </div>
