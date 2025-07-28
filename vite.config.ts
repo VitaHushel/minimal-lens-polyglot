@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/minimal-lens-polyglot/',  // <- ОБОВ'ЯЗКОВО, щоб працювало на GitHub Pages у підпапці
+  base: '/',  // Root domain for vitahushelphoto.github.io
   server: {
     host: "::",
     port: 8080,
