@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowRight } from 'lucide-react';
 
-// Import blog images
+// Імпорт зображень для постів
 import weddingTips from '../../assets/blog/wedding-tips.jpg';
 import naturalLight from '../../assets/blog/natural-light.jpg';
 import familyGuide from '../../assets/blog/family-guide.jpg';
@@ -34,15 +34,38 @@ export const BlogSection: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  const posts = [
+    {
+      title: "Основи фотографії для початківців",
+      slug: "post1",
+      excerpt: "Фотографія — це мистецтво і техніка одночасно. У цій статті ми розглянемо базові поняття...",
+      date: "28 липня 2025",
+      category: "Фотографія",
+    },
+    {
+      title: "Поради з весільної фотографії",
+      slug: "post2",
+      excerpt: "Як зловити найкращі моменти на весіллі? Розглянемо корисні техніки та поради...",
+      date: "15 липня 2025",
+      category: "Весілля",
+    },
+    {
+      title: "Сімейні фотосесії: секрети успіху",
+      slug: "post3",
+      excerpt: "Створення теплих і живих фотографій для сім’ї — важливе завдання. Ось кілька ідей для натхнення...",
+      date: "10 липня 2025",
+      category: "Сім’я",
+    },
+  ];
+
   return (
-    <section 
-      id="blog" 
+    <section
+      id="blog"
       ref={sectionRef}
       className="py-20 lg:py-32 section-gradient"
     >
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
-        <div 
+        <div
           className={`text-center mb-16 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
@@ -55,9 +78,8 @@ export const BlogSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {t.blog.posts.map((post, index) => (
+          {posts.map((post, index) => (
             <Card
               key={index}
               className={`group overflow-hidden shadow-soft hover:shadow-medium transition-all duration-500 border-0 bg-card ${
@@ -65,7 +87,6 @@ export const BlogSection: React.FC = () => {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Blog Post Image */}
               <div className="aspect-[16/10] overflow-hidden">
                 <img
                   src={blogImages[index]}
@@ -76,7 +97,6 @@ export const BlogSection: React.FC = () => {
               </div>
 
               <CardContent className="p-6">
-                {/* Category and Date */}
                 <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
                   <span className="px-3 py-1 bg-accent rounded-full font-medium">
                     {post.category}
@@ -87,32 +107,28 @@ export const BlogSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Title */}
                 <h3 className="text-xl font-elegant font-semibold text-primary mb-3 line-clamp-2 group-hover:text-charcoal transition-colors duration-300">
                   {post.title}
                 </h3>
 
-                {/* Excerpt */}
                 <p className="text-muted-foreground mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
 
-                {/* Read More Button */}
-                <Button
-                  variant="ghost"
-                  className="p-0 h-auto text-primary hover:text-charcoal font-medium group/btn"
+                <Link
+                  to={`/blog/${post.slug}.html`}
+                  className="inline-flex items-center text-primary hover:text-charcoal font-medium"
                   aria-label={`Read more about ${post.title}`}
                 >
                   {t.blog.readMore}
-                  <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </Button>
+                  <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* View All Blog Posts Button */}
-        <div 
+        <div
           className={`text-center mt-12 transition-all duration-700 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
