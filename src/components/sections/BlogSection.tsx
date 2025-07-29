@@ -39,7 +39,9 @@ const BlogSection = () => {
             <p className="text-gray-600 mb-4">{description}</p>
             <Button variant="outline" asChild>
               <a
-                href={`#/blog/${slug}.html?lang=${language}`}
+                href={`/blog/${slug}.html?lang=${language}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={`${t.blog.readMore}: ${title}`}
               >
                 {t.blog.readMore}

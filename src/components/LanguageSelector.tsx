@@ -14,6 +14,7 @@ const languageOptions = [
   { code: 'en' as Language, label: 'EN', name: 'English' },
   { code: 'uk' as Language, label: 'UA', name: 'Українська' },
   { code: 'pl' as Language, label: 'PL', name: 'Polski' },
+  { code: 'de' as Language, label: 'DE', name: 'Deutsch' },
 ];
 
 export const LanguageSelector: React.FC = () => {
