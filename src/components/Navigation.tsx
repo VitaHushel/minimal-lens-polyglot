@@ -11,6 +11,9 @@ export const Navigation: React.FC = () => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Check if we're on a blog page
+  const isBlogPage = location.pathname === '/blog';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +34,11 @@ export const Navigation: React.FC = () => {
     { key: 'blog', href: '/blog', isRoute: true },
     { key: 'contact', href: '#contact', isRoute: false },
   ];
+
+  // Filter nav items for blog page (only show home)
+  const displayedNavItems = isBlogPage 
+    ? navItems.filter(item => item.key === 'home')
+    : navItems;
 
   const handleNavClick = (href: string, isRoute: boolean) => {
     setIsMobileMenuOpen(false);
@@ -79,7 +87,7 @@ export const Navigation: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {displayedNavItems.map((item) => (
               item.isRoute ? (
                 <Link
                   key={item.key}
@@ -124,7 +132,7 @@ export const Navigation: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border shadow-medium">
             <div className="px-4 py-6 space-y-4">
-              {navItems.map((item) => (
+              {displayedNavItems.map((item) => (
                 item.isRoute ? (
                   <Link
                     key={item.key}

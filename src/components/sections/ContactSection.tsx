@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Phone, Mail, MessageCircle, Send, Instagram } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 
@@ -60,6 +61,20 @@ export const ContactSection: React.FC = () => {
       value: "@vitahushel",
       action: () => window.open('https://instagram.com/vitahushel', '_blank'),
       ariaLabel: t.contact.social.instagram
+    },
+    {
+      icon: Facebook,
+      label: "Facebook",
+      value: "Vita Hushel",
+      action: () => window.open('https://facebook.com/vitahushel', '_blank'),
+      ariaLabel: "Facebook"
+    },
+    {
+      icon: MessageCircle,
+      label: "Viber",
+      value: "+48 791 613 941",
+      action: () => window.open('viber://chat?number=%2B48791613941', '_blank'),
+      ariaLabel: "Contact via Viber"
     }
   ];
 
