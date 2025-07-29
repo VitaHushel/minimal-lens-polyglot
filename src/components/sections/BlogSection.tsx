@@ -1,31 +1,35 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const posts = [
-  {
-    title: "Поради для ідеального весільного фото",
-    description: "Дізнайтесь, як зробити день весілля незабутнім на фотографіях.",
-    image: "/blog/wedding-tips.jpg",
-    slug: "post-1",
-  },
-  {
-    title: "Як вибрати природне світло",
-    description: "Поради для портретної зйомки з натуральним освітленням.",
-    image: "/blog/natural-light.jpg",
-    slug: "post-2",
-  },
-  {
-    title: "Сімейна фотосесія: як підготуватись",
-    description: "Гід для сімей, які хочуть зберегти теплі моменти.",
-    image: "/blog/family-guide.jpg",
-    slug: "post-3",
-  },
-];
+const BlogSection = () => {
+  const { t, language } = useLanguage();
 
-const BlogSection = () => (
+  const posts = [
+    {
+      title: t.blog.posts[0].title,
+      description: t.blog.posts[0].excerpt,
+      image: "/assets/blog/wedding-tips.jpg",
+      slug: "post-1",
+    },
+    {
+      title: t.blog.posts[1].title,
+      description: t.blog.posts[1].excerpt,
+      image: "/assets/blog/natural-light.jpg",
+      slug: "post-2",
+    },
+    {
+      title: t.blog.posts[2].title,
+      description: t.blog.posts[2].excerpt,
+      image: "/assets/blog/family-guide.jpg",
+      slug: "post-3",
+    },
+  ];
+
+  return (
   <section className="py-10 px-4 md:px-12 lg:px-24" id="blog">
-    <h2 className="text-3xl font-bold mb-6">Блог</h2>
+    <h2 className="text-3xl font-bold mb-6">{t.nav.blog}</h2>
     <div className="grid gap-6 md:grid-cols-3">
       {posts.map(({ title, description, image, slug }) => (
         <Card key={slug} className="overflow-hidden">
@@ -35,12 +39,12 @@ const BlogSection = () => (
             <p className="text-gray-600 mb-4">{description}</p>
             <Button variant="outline" asChild>
               <a
-                href={`/blog/${slug}.html`}
+                href={`/blog/${slug}.html?lang=${language}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Читати далі: ${title}`}
+                aria-label={`${t.blog.readMore}: ${title}`}
               >
-                Читати далі
+                {t.blog.readMore}
               </a>
             </Button>
           </CardContent>
@@ -48,6 +52,7 @@ const BlogSection = () => (
       ))}
     </div>
   </section>
-);
+  );
+};
 
 export default BlogSection;
