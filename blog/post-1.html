@@ -17,7 +17,8 @@
       background-color: #111;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
     }
     nav a {
       color: #eee;
@@ -28,6 +29,24 @@
     }
     nav a:hover {
       color: #c0c0c0;
+    }
+    .lang-selector {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .lang-btn {
+      background: none;
+      border: 1px solid #555;
+      color: #eee;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      background-color: #555;
+      border-color: #777;
     }
     main {
       max-width: 800px;
@@ -88,6 +107,12 @@
 <body>
   <nav>
     <a href="/" id="home-link">Home</a>
+    <div class="lang-selector">
+      <button class="lang-btn" onclick="changeLanguage('en')" id="lang-en">EN</button>
+      <button class="lang-btn" onclick="changeLanguage('uk')" id="lang-uk">UA</button>
+      <button class="lang-btn" onclick="changeLanguage('pl')" id="lang-pl">PL</button>
+      <button class="lang-btn" onclick="changeLanguage('de')" id="lang-de">DE</button>
+    </div>
   </nav>
 
   <main>
@@ -168,6 +193,23 @@
           conclusion: "Pamiętaj, że w dniu ślubu nie jesteś tylko fotografem - jesteś strażnikiem wspomnień, które będą trwać całe życie."
         },
         footerText: "© 2025 Vita Hushel"
+      },
+      de: {
+        title: "Perfekte Hochzeitsfotografie-Tipps — Vita Hushel",
+        homeLink: "Startseite",
+        articleTitle: "Perfekte Hochzeitsfotografie-Tipps",
+        articleDate: "Datum: 28. Juli 2025",
+        content: {
+          intro: "Hochzeitsfotografie ist eines der wichtigsten und herausforderndsten Genres der Fotografie. In diesem Artikel erkunden wir wesentliche Tipps, die Ihnen helfen, die perfekten Momente an einem der wichtigsten Tage im Leben eines Paares festzuhalten.",
+          preparation: "Vorbereitung ist der Schlüssel",
+          preparationText: "Vor dem Hochzeitstag treffen Sie sich mit dem Paar, um ihre Vision, ihren bevorzugten Stil und unverzichtbare Aufnahmen zu besprechen. Erkunden Sie wenn möglich die Veranstaltungsort, um die besten Beleuchtungsplätze und potenzielle Fotostandorte zu identifizieren.",
+          equipment: "Ausrüstungs-Essentials",
+          equipmentText: "Bringen Sie immer Ersatzausrüstung mit - Kameras, Objektive, Batterien und Speicherkarten. Eine 24-70mm und 70-200mm Objektivkombination funktioniert gut für die meisten Hochzeitsszenarien. Vergessen Sie nicht externe Blitze für schwach beleuchtete Situationen.",
+          emotions: "Emotionen einfangen",
+          emotionsText: "Konzentrieren Sie sich auf spontane Momente und echte Emotionen. Einige der besten Hochzeitsfotos entstehen zwischen den formellen Aufnahmen - Lachen während der Vorbereitung, Tränen während der Gelübde und Freude während der Feier.",
+          conclusion: "Denken Sie daran, Sie sind nicht nur ein Fotograf an einem Hochzeitstag - Sie sind ein Hüter von Erinnerungen, die ein Leben lang halten."
+        },
+        footerText: "© 2025 Vita Hushel"
       }
     };
 
@@ -181,6 +223,19 @@
       // Detect browser language
       const browserLang = navigator.language.split('-')[0];
       return translations[browserLang] ? browserLang : 'en';
+    }
+
+    function changeLanguage(lang) {
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+      updateContent(lang);
+      updateActiveLanguageButton(lang);
+    }
+
+    function updateActiveLanguageButton(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`lang-${lang}`).classList.add('active');
     }
 
     function updateContent(lang) {
@@ -211,6 +266,7 @@
     // Initialize with detected language
     const currentLang = getLanguageFromURL();
     updateContent(currentLang);
+    updateActiveLanguageButton(currentLang);
   </script>
 </body>
 </html>
