@@ -8,7 +8,6 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Calendar, ArrowRight, ChevronLeft, ChevronRight, Tag } from 'lucide-react';
 
-// Import blog images
 import weddingTips from '../assets/blog/wedding-tips.jpg';
 import naturalLight from '../assets/blog/natural-light.jpg';
 import familyGuide from '../assets/blog/family-guide.jpg';
@@ -22,7 +21,6 @@ export const Blog: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  // Extended blog posts data - in a real app, this would come from a CMS or API
   const allPosts = [
     ...t.blog.posts.map((post, index) => ({
       ...post,
@@ -32,7 +30,6 @@ export const Blog: React.FC = () => {
       tags: index === 0 ? ['photography', 'wedding'] : index === 1 ? ['tutorial', 'lighting'] : ['family', 'preparation'],
       content: `Full content for ${post.title}...`
     })),
-    // Add more sample posts for pagination demo
     ...Array.from({ length: 9 }, (_, i) => ({
       id: i + 4,
       title: `Sample Blog Post ${i + 4}`,
@@ -46,17 +43,14 @@ export const Blog: React.FC = () => {
     }))
   ];
 
-  // Filter posts by category
   const filteredPosts = selectedCategory 
     ? allPosts.filter(post => post.category === selectedCategory)
     : allPosts;
 
-  // Pagination logic
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const currentPosts = filteredPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
-  // Get unique categories
   const categories = Array.from(new Set(allPosts.map(post => post.category)));
 
   const handlePageChange = (page: number) => {
@@ -72,7 +66,7 @@ export const Blog: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 section-gradient">
@@ -83,9 +77,11 @@ export const Blog: React.FC = () => {
                   {t.nav.home}
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-primary">{t.blog.title}</span>
+                <Link to="/blog" className="hover:text-primary transition-colors">
+                  {t.blog.title}
+                </Link>
               </nav>
-              
+
               <h1 className="text-4xl lg:text-5xl font-elegant font-semibold text-primary mb-6">
                 {t.blog.title}
               </h1>
@@ -103,7 +99,7 @@ export const Blog: React.FC = () => {
               <span className="text-sm font-medium text-muted-foreground">
                 {t.blog.filterBy || 'Filter by category:'}
               </span>
-              
+
               <Button
                 variant={selectedCategory === null ? "default" : "outline"}
                 size="sm"
@@ -112,7 +108,7 @@ export const Blog: React.FC = () => {
               >
                 {t.blog.allPosts || 'All Posts'}
               </Button>
-              
+
               {categories.map((category) => (
                 <Button
                   key={category}
@@ -133,12 +129,11 @@ export const Blog: React.FC = () => {
         <section className="py-16">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {currentPosts.map((post, index) => (
+              {currentPosts.map((post) => (
                 <Card
                   key={post.id}
                   className="group overflow-hidden shadow-soft hover:shadow-medium transition-all duration-500 border-0 bg-card"
                 >
-                  {/* Blog Post Image */}
                   <div className="aspect-[16/10] overflow-hidden">
                     <img
                       src={post.image}
@@ -149,7 +144,6 @@ export const Blog: React.FC = () => {
                   </div>
 
                   <CardContent className="p-6">
-                    {/* Category and Date */}
                     <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
                       <span className="px-3 py-1 bg-accent rounded-full font-medium">
                         {post.category}
@@ -160,17 +154,14 @@ export const Blog: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Title */}
                     <h2 className="text-xl font-elegant font-semibold text-primary mb-3 line-clamp-2 group-hover:text-charcoal transition-colors duration-300">
                       {post.title}
                     </h2>
 
-                    {/* Excerpt */}
                     <p className="text-muted-foreground mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {post.tags.map((tag) => (
                         <span 
@@ -182,7 +173,6 @@ export const Blog: React.FC = () => {
                       ))}
                     </div>
 
-                    {/* Read More Button */}
                     <Link
                       to={`/blog/${post.slug}`}
                       className="inline-flex items-center text-primary hover:text-charcoal font-medium group/btn transition-colors duration-300"
@@ -208,7 +198,7 @@ export const Blog: React.FC = () => {
                   <ChevronLeft className="w-4 h-4" />
                   {t.blog.previous || 'Previous'}
                 </Button>
-                
+
                 <div className="flex items-center gap-2">
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                     <Button
@@ -222,7 +212,7 @@ export const Blog: React.FC = () => {
                     </Button>
                   ))}
                 </div>
-                
+
                 <Button
                   variant="outline"
                   size="sm"
