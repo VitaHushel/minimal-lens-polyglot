@@ -17,7 +17,8 @@
       background-color: #111;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
     }
     nav a {
       color: #eee;
@@ -28,6 +29,54 @@
     }
     nav a:hover {
       color: #c0c0c0;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .post-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid #ddd;
+    }
+    .post-nav-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #f5f5f5;
+      color: #333;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+    .post-nav-btn:hover {
+      background-color: #e5e5e5;
+    }
+    .post-nav-btn.disabled {
+      color: #999;
+      pointer-events: none;
+      background-color: #f9f9f9;
+    }
+    .lang-selector {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .lang-btn {
+      background: none;
+      border: 1px solid #555;
+      color: #eee;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      background-color: #555;
+      border-color: #777;
     }
     main {
       max-width: 800px;
@@ -82,12 +131,25 @@
         margin: 1rem;
         padding: 1rem;
       }
+      .nav-left {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="/" id="home-link">Home</a>
+    <div class="nav-left">
+      <a href="/#/" id="home-link">Home</a>
+      <a href="/#/blog" id="back-to-blog">← Back to Blog</a>
+    </div>
+    <div class="lang-selector">
+      <button class="lang-btn" onclick="changeLanguage('en')" id="lang-en">EN</button>
+      <button class="lang-btn" onclick="changeLanguage('uk')" id="lang-uk">UA</button>
+      <button class="lang-btn" onclick="changeLanguage('pl')" id="lang-pl">PL</button>
+    </div>
   </nav>
 
   <main>
@@ -110,6 +172,11 @@
 
       <p>Mastering natural light takes practice, but once you understand how to read and use available light, you'll be amazed at the professional results you can achieve.</p>
     </div>
+    
+    <div class="post-navigation">
+      <a href="/blog/post-1.html" class="post-nav-btn" id="prev-post">← Previous Post</a>
+      <a href="/blog/post-3.html" class="post-nav-btn" id="next-post">Next Post →</a>
+    </div>
   </main>
 
   <footer>
@@ -121,6 +188,7 @@
       en: {
         title: "How to Choose Natural Light — Vita Hushel",
         homeLink: "Home",
+        backToBlog: "← Back to Blog",
         articleTitle: "How to Choose Natural Light",
         articleDate: "Date: July 25, 2025",
         content: {
@@ -138,6 +206,7 @@
       uk: {
         title: "Як вибрати природне світло — Віта Гушель",
         homeLink: "Головна",
+        backToBlog: "← Назад до блогу",
         articleTitle: "Як вибрати природне світло",
         articleDate: "Дата: 25 липня 2025",
         content: {
@@ -155,6 +224,7 @@
       pl: {
         title: "Jak wybrać naturalne światło — Vita Hushel",
         homeLink: "Strona główna",
+        backToBlog: "← Powrót do bloga",
         articleTitle: "Jak wybrać naturalne światło",
         articleDate: "Data: 25 lipca 2025",
         content: {
@@ -183,12 +253,26 @@
       return translations[browserLang] ? browserLang : 'en';
     }
 
+    function changeLanguage(lang) {
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+      updateContent(lang);
+      updateActiveLanguageButton(lang);
+    }
+
+    function updateActiveLanguageButton(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`lang-${lang}`).classList.add('active');
+    }
+
     function updateContent(lang) {
       const t = translations[lang];
       document.documentElement.lang = lang;
       document.getElementById('page-title').textContent = t.title;
       document.title = t.title;
       document.getElementById('home-link').textContent = t.homeLink;
+      document.getElementById('back-to-blog').textContent = t.backToBlog;
       document.getElementById('article-title').textContent = t.articleTitle;
       document.getElementById('article-date').textContent = t.articleDate;
       document.getElementById('footer-text').textContent = t.footerText;
@@ -211,6 +295,7 @@
     // Initialize with detected language
     const currentLang = getLanguageFromURL();
     updateContent(currentLang);
+    updateActiveLanguageButton(currentLang);
   </script>
 </body>
 </html>

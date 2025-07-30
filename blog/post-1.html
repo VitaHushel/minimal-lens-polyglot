@@ -33,6 +33,7 @@
     .nav-left {
       display: flex;
       align-items: center;
+      gap: 1rem;
     }
     .post-navigation {
       display: flex;
@@ -136,6 +137,7 @@
 <body>
   <nav>
     <div class="nav-left">
+      <a href="/#/" id="home-link">Home</a>
       <a href="/#/blog" id="back-to-blog">← Back to Blog</a>
     </div>
     <div class="lang-selector">
@@ -180,6 +182,7 @@
     const translations = {
       en: {
         title: "Perfect Wedding Photography Tips — Vita Hushel",
+        homeLink: "Home",
         backToBlog: "← Back to Blog",
         articleTitle: "Perfect Wedding Photography Tips",
         articleDate: "Date: July 28, 2025",
@@ -197,6 +200,7 @@
       },
       uk: {
         title: "Поради для ідеального весільного фото — Віта Гушель",
+        homeLink: "Головна",
         backToBlog: "← Назад до блогу",
         articleTitle: "Поради для ідеального весільного фото",
         articleDate: "Дата: 28 липня 2025",
@@ -214,6 +218,7 @@
       },
       pl: {
         title: "Wskazówki dotyczące idealnej fotografii ślubnej — Vita Hushel",
+        homeLink: "Strona główna",
         backToBlog: "← Powrót do bloga",
         articleTitle: "Wskazówki dotyczące idealnej fotografii ślubnej",
         articleDate: "Data: 28 lipca 2025",
@@ -261,6 +266,7 @@
       document.documentElement.lang = lang;
       document.getElementById('page-title').textContent = t.title;
       document.title = t.title;
+      document.getElementById('home-link').textContent = t.homeLink;
       document.getElementById('back-to-blog').textContent = t.backToBlog;
       document.getElementById('article-title').textContent = t.articleTitle;
       document.getElementById('article-date').textContent = t.articleDate;
