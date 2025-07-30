@@ -30,6 +30,35 @@
     nav a:hover {
       color: #c0c0c0;
     }
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+    .post-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid #ddd;
+    }
+    .post-nav-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #f5f5f5;
+      color: #333;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+    .post-nav-btn:hover {
+      background-color: #e5e5e5;
+    }
+    .post-nav-btn.disabled {
+      color: #999;
+      pointer-events: none;
+      background-color: #f9f9f9;
+    }
     .lang-selector {
       display: flex;
       gap: 0.5rem;
@@ -106,12 +135,13 @@
 </head>
 <body>
   <nav>
-    <a href="/" id="home-link">Home</a>
+    <div class="nav-left">
+      <a href="/#/blog" id="back-to-blog">← Back to Blog</a>
+    </div>
     <div class="lang-selector">
       <button class="lang-btn" onclick="changeLanguage('en')" id="lang-en">EN</button>
       <button class="lang-btn" onclick="changeLanguage('uk')" id="lang-uk">UA</button>
       <button class="lang-btn" onclick="changeLanguage('pl')" id="lang-pl">PL</button>
-      <button class="lang-btn" onclick="changeLanguage('de')" id="lang-de">DE</button>
     </div>
   </nav>
 
@@ -135,6 +165,11 @@
 
       <p>Remember, you're not just a photographer on a wedding day - you're a guardian of memories that will last a lifetime.</p>
     </div>
+    
+    <div class="post-navigation">
+      <a href="#" class="post-nav-btn disabled" id="prev-post">← Previous Post</a>
+      <a href="/blog/post-2.html" class="post-nav-btn" id="next-post">Next Post →</a>
+    </div>
   </main>
 
   <footer>
@@ -145,7 +180,7 @@
     const translations = {
       en: {
         title: "Perfect Wedding Photography Tips — Vita Hushel",
-        homeLink: "Home",
+        backToBlog: "← Back to Blog",
         articleTitle: "Perfect Wedding Photography Tips",
         articleDate: "Date: July 28, 2025",
         content: {
@@ -162,7 +197,7 @@
       },
       uk: {
         title: "Поради для ідеального весільного фото — Віта Гушель",
-        homeLink: "Головна",
+        backToBlog: "← Назад до блогу",
         articleTitle: "Поради для ідеального весільного фото",
         articleDate: "Дата: 28 липня 2025",
         content: {
@@ -179,7 +214,7 @@
       },
       pl: {
         title: "Wskazówki dotyczące idealnej fotografii ślubnej — Vita Hushel",
-        homeLink: "Strona główna",
+        backToBlog: "← Powrót do bloga",
         articleTitle: "Wskazówki dotyczące idealnej fotografii ślubnej",
         articleDate: "Data: 28 lipca 2025",
         content: {
@@ -191,23 +226,6 @@
           emotions: "Uchwycenie emocji",
           emotionsText: "Skup się na naturalnych momentach i prawdziwych emocjach. Niektóre z najlepszych zdjęć ślubnych powstają między formalnymi ujęciami - śmiech podczas przygotowań, łzy podczas ślubowania i radość podczas celebracji.",
           conclusion: "Pamiętaj, że w dniu ślubu nie jesteś tylko fotografem - jesteś strażnikiem wspomnień, które będą trwać całe życie."
-        },
-        footerText: "© 2025 Vita Hushel"
-      },
-      de: {
-        title: "Perfekte Hochzeitsfotografie-Tipps — Vita Hushel",
-        homeLink: "Startseite",
-        articleTitle: "Perfekte Hochzeitsfotografie-Tipps",
-        articleDate: "Datum: 28. Juli 2025",
-        content: {
-          intro: "Hochzeitsfotografie ist eines der wichtigsten und herausforderndsten Genres der Fotografie. In diesem Artikel erkunden wir wesentliche Tipps, die Ihnen helfen, die perfekten Momente an einem der wichtigsten Tage im Leben eines Paares festzuhalten.",
-          preparation: "Vorbereitung ist der Schlüssel",
-          preparationText: "Vor dem Hochzeitstag treffen Sie sich mit dem Paar, um ihre Vision, ihren bevorzugten Stil und unverzichtbare Aufnahmen zu besprechen. Erkunden Sie wenn möglich die Veranstaltungsort, um die besten Beleuchtungsplätze und potenzielle Fotostandorte zu identifizieren.",
-          equipment: "Ausrüstungs-Essentials",
-          equipmentText: "Bringen Sie immer Ersatzausrüstung mit - Kameras, Objektive, Batterien und Speicherkarten. Eine 24-70mm und 70-200mm Objektivkombination funktioniert gut für die meisten Hochzeitsszenarien. Vergessen Sie nicht externe Blitze für schwach beleuchtete Situationen.",
-          emotions: "Emotionen einfangen",
-          emotionsText: "Konzentrieren Sie sich auf spontane Momente und echte Emotionen. Einige der besten Hochzeitsfotos entstehen zwischen den formellen Aufnahmen - Lachen während der Vorbereitung, Tränen während der Gelübde und Freude während der Feier.",
-          conclusion: "Denken Sie daran, Sie sind nicht nur ein Fotograf an einem Hochzeitstag - Sie sind ein Hüter von Erinnerungen, die ein Leben lang halten."
         },
         footerText: "© 2025 Vita Hushel"
       }
@@ -243,7 +261,7 @@
       document.documentElement.lang = lang;
       document.getElementById('page-title').textContent = t.title;
       document.title = t.title;
-      document.getElementById('home-link').textContent = t.homeLink;
+      document.getElementById('back-to-blog').textContent = t.backToBlog;
       document.getElementById('article-title').textContent = t.articleTitle;
       document.getElementById('article-date').textContent = t.articleDate;
       document.getElementById('footer-text').textContent = t.footerText;
