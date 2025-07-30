@@ -26,20 +26,20 @@ export const Blog: React.FC = () => {
       ...post,
       id: index + 1,
       image: blogImages[index],
-      slug: `2024/03/${15 - index}/post-${index + 1}`,
+      slug: `post-${index + 1}`,
       tags: index === 0 ? ['photography', 'wedding'] : index === 1 ? ['tutorial', 'lighting'] : ['family', 'preparation'],
       content: `Full content for ${post.title}...`
     })),
-    ...Array.from({ length: 9 }, (_, i) => ({
+    ...Array.from({ length: 97 }, (_, i) => ({
       id: i + 4,
-      title: `Sample Blog Post ${i + 4}`,
-      excerpt: `This is a sample excerpt for blog post ${i + 4}. It provides a brief overview of what the post is about.`,
-      date: `${Math.floor(Math.random() * 28) + 1} лютого 2024`,
-      category: ['Весілля', 'Урок', 'Сім\'я'][i % 3],
+      title: `Post ${i + 4}`,
+      excerpt: `This is an excerpt for blog post ${i + 4}. It provides a brief overview of photography techniques and tips that will help you improve your skills.`,
+      date: `${Math.floor(Math.random() * 28) + 1} ${['January', 'February', 'March', 'April', 'May', 'June'][Math.floor(Math.random() * 6)]} 2024`,
+      category: ['Wedding', 'Tutorial', 'Family'][i % 3],
       image: blogImages[i % 3],
-      slug: `2024/02/${Math.floor(Math.random() * 28) + 1}/sample-post-${i + 4}`,
+      slug: `post-${i + 4}`,
       tags: ['photography', 'tips'],
-      content: `Full content for sample post ${i + 4}...`
+      content: `Full content for Post ${i + 4}...`
     }))
   ];
 
@@ -173,13 +173,13 @@ export const Blog: React.FC = () => {
                       ))}
                     </div>
 
-                    <Link
-                      to={`/blog/${post.slug}`}
+                    <a
+                      href={`/blog/${post.slug}.html`}
                       className="inline-flex items-center text-primary hover:text-charcoal font-medium group/btn transition-colors duration-300"
                     >
                       {t.blog.readMore}
                       <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                    </Link>
+                    </a>
                   </CardContent>
                 </Card>
               ))}
