@@ -31,6 +31,19 @@ interface BookingFormData {
   honeypot: string; // Spam protection
 }
 
+interface GoogleFormData {
+  'entry.815529139': string; // Full Name
+  'entry.899621187': string; // Email
+  'entry.743738326': string; // Phone Number
+  'entry.133412522': string; // Service Type
+  'entry.1820092030': string; // Message
+  'entry.1044407857_hour': string; // Hour
+  'entry.1044407857_minute': string; // Minute
+  'entry.1405194602_year': string; // Year
+  'entry.1405194602_month': string; // Month
+  'entry.1405194602_day': string; // Day
+}
+
 export const BookingSection: React.FC = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
@@ -82,8 +95,34 @@ export const BookingSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission - replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Parse time into hour and minute
+      const [hour, minute] = data.time.split(':');
+      
+      // Parse date into day, month, year
+      const selectedDate = data.date;
+      const day = selectedDate ? selectedDate.getDate().toString() : '';
+      const month = selectedDate ? (selectedDate.getMonth() + 1).toString() : '';
+      const year = selectedDate ? selectedDate.getFullYear().toString() : '';
+
+      // Prepare Google Form data
+      const formData = new FormData();
+      formData.append('entry.815529139', data.name);
+      formData.append('entry.899621187', data.email);
+      formData.append('entry.743738326', data.phone || '');
+      formData.append('entry.133412522', data.serviceType);
+      formData.append('entry.1820092030', data.message || '');
+      formData.append('entry.1044407857_hour', hour);
+      formData.append('entry.1044407857_minute', minute);
+      formData.append('entry.1405194602_year', year);
+      formData.append('entry.1405194602_month', month);
+      formData.append('entry.1405194602_day', day);
+
+      // Submit to Google Form
+      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
       
       toast({
         title: "Booking Request Sent!",
