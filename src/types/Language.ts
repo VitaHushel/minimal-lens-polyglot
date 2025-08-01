@@ -271,11 +271,12 @@ export const translations: Record<Language, TranslationContent> = {
           timeRequired: "Please select a time"
         },
         services: {
+          portrait: "Individual Photoshoot",
+          family: "Family Photoshoot",
+          children: "Children's Photoshoot",
           wedding: "Wedding Photography",
-          portrait: "Portrait Session",
-          family: "Family Photography",
-          event: "Event Photography",
-          maternity: "Maternity Photography"
+          event: "Event / Celebration Coverage",
+          studio: "Studio Photoshoot"
         }
       }
     },
@@ -477,11 +478,12 @@ export const translations: Record<Language, TranslationContent> = {
           timeRequired: "Будь ласка, оберіть час"
         },
         services: {
-          wedding: "Весільна фотографія",
-          portrait: "Портретна сесія",
-          family: "Сімейна фотографія",
-          event: "Подієва фотографія",
-          maternity: "Фотографія вагітності"
+          portrait: "Індивідуальна фотосесія",
+          family: "Сімейна фотосесія",
+          children: "Дитяча фотосесія",
+          wedding: "Весільна фотозйомка",
+          event: "Фотозйомка святкування",
+          studio: "Студійна фотозйомка"
         }
       }
     },
@@ -683,11 +685,12 @@ export const translations: Record<Language, TranslationContent> = {
           timeRequired: "Proszę wybrać godzinę"
         },
         services: {
+          portrait: "Indywidualna sesja zdjęciowa",
+          family: "Rodzinna sesja zdjęciowa",
+          children: "Dziecięca sesja zdjęciowa",
           wedding: "Fotografia ślubna",
-          portrait: "Sesja portretowa",
-          family: "Fotografia rodzinna",
-          event: "Fotografia eventowa",
-          maternity: "Fotografia ciążowa"
+          event: "Fotoreportaż z uroczystości",
+          studio: "Sesja studyjna"
         }
       }
     },
