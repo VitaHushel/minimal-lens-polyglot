@@ -98,8 +98,9 @@ export interface TranslationContent {
         wedding: string;
         portrait: string;
         family: string;
+        children: string;
         event: string;
-        maternity: string;
+        studio: string;
       };
     };
   };
@@ -271,12 +272,12 @@ export const translations: Record<Language, TranslationContent> = {
           timeRequired: "Please select a time"
         },
         services: {
-          portrait: "Individual Photoshoot",
-          family: "Family Photoshoot",
-          children: "Children's Photoshoot",
-          wedding: "Wedding Photography",
-          event: "Event / Celebration Coverage",
-          studio: "Studio Photoshoot"
+          portrait: "Individual photoshoot",
+          family: "Family photoshoot",
+          children: "Children's photoshoot",
+          wedding: "Wedding photography",
+          event: "Event / celebration coverage",
+          studio: "Studio photoshoot"
         }
       }
     },
