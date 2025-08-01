@@ -1,5 +1,5 @@
 // Language types and content for multilingual support
-export type Language = 'en' | 'uk' | 'pl' | 'de';
+export type Language = 'en' | 'uk' | 'pl';
 
 export interface TranslationContent {
   name: string;
@@ -339,12 +339,12 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Get in Touch",
       subtitle: "Ready to capture your special moments?",
       address: "Wolsztyn, 64-200, Poland",
-      phone: "+48 791 613 941",
-      email: "vitahushel@gmail.com",
+      phone: "Phone",
+      email: "Email",
       social: {
-        whatsapp: "Message on WhatsApp",
-        telegram: "Contact via Telegram",
-        instagram: "Follow on Instagram @vitaahushel"
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Instagram"
       }
     },
     footer: {
@@ -545,12 +545,12 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Зв'яжіться зі мною",
       subtitle: "Готові зафіксувати ваші особливі моменти?",
       address: "Вольштин, 64-200, Польща",
-      phone: "+48 791 613 941",
-      email: "vitahushel@gmail.com",
+      phone: "Телефон",
+      email: "Електронна пошта",
       social: {
-        whatsapp: "Написати в WhatsApp",
-        telegram: "Зв'язатися через Telegram",
-        instagram: "Підписатися в Instagram @vitahushel"
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Інстаграм"
       }
     },
     footer: {
@@ -751,12 +751,12 @@ export const translations: Record<Language, TranslationContent> = {
       title: "Skontaktuj się",
       subtitle: "Gotowi uwiecznić swoje wyjątkowe chwile?",
       address: "Wolsztyn, 64-200, Polska",
-      phone: "+48 791 613 941",
-      email: "vitahushel@gmail.com",
+      phone: "Telefon",
+      email: "E-mail",
       social: {
-        whatsapp: "Napisz na WhatsApp",
-        telegram: "Skontaktuj się przez Telegram",
-        instagram: "Śledź na Instagram @vitahushel"
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        instagram: "Instagram"
       }
     },
     footer: {
@@ -766,211 +766,6 @@ export const translations: Record<Language, TranslationContent> = {
     meta: {
       title: "Wiktoria Hushel - Profesjonalny fotograf",
       description: "Profesjonalny fotograf specjalizujący się w uwiecznianiu najcenniejszych życiowych chwil z artystyczną elegancją. Tworzę ponadczasowe wspomnienia, które pozostają na całe życie."
-    }
-  },
-  de: {
-    name: "Vita Hushel",
-    nav: {
-      home: "Startseite",
-      about: "Über mich",
-      portfolio: "Portfolio",
-      prices: "Preise",
-      booking: "Buchung",
-      testimonials: "Bewertungen",
-      blog: "Blog",
-      contact: "Kontakt"
-    },
-    hero: {
-      title: "Vita Hushel",
-      subtitle: "Die kostbarsten Lebensmomente mit künstlerischer Eleganz festhalten",
-      cta: "Jetzt buchen"
-    },
-    about: {
-      title: "Über mich",
-      content: "Hallo! Ich heiße Vita und bin Fotografin — ich freue mich sehr, Sie auf meiner Website begrüßen zu dürfen! Seit fast drei Jahren lebe ich in Polen, davor habe ich mit meiner Familie in Kiew gewohnt. Meine Liebe zur Fotografie begann in der Kindheit — ich fotografierte Freunde mit einer 'Kodak'-Filmkamera und hielt Lebensmomente fest, die ich lange bewahren wollte. Später, nach Erhalt meines ersten Stipendiums, kaufte ich eine digitale Olympus — das war der erste Schritt zu etwas Größerem. Mich hat immer die Fähigkeit fasziniert, nicht nur ein Bild, sondern eine Emotion, eine Stimmung, Wärme festzuhalten. Mit der Zeit begann ich über Instagram, Teile meines Lebens zu teilen: Alltagsmomente, Essen, Atmosphäre. Gleichzeitig lernte ich die Bildbearbeitung, suchte meinen Stil und mein Gefühl für Komposition. Meine erste professionelle Kamera kaufte ich erst vor einem Jahr. Es war beängstigend — aber ich wusste: Träume sind es wert, verfolgt zu werden. Heute habe ich die dankbarsten Kunden und freue mich aufrichtig über jede Gelegenheit, jemandem eine lebenslange Erinnerung zu schenken. Für mich ist Fotografie nicht nur ein schönes Bild. Es geht um Aufrichtigkeit, Aufmerksamkeit, Interaktion. Um Ihre Lächeln, Umarmungen, echte Momente, die Sie nicht nur im Herzen, sondern auch in Fotos bewahren möchten. Ich lade Sie zu einem Fotoshooting ein — ich verspreche viel Licht, Wärme und Aufnahmen, zu denen Sie immer wieder zurückkehren möchten."
-    },
-    portfolio: {
-      title: "Portfolio",
-      subtitle: "Ein Einblick in meine Welt der Fotografie"
-    },
-    prices: {
-      title: "Fotografie-Pakete",
-      subtitle: "Professionelle Fotografie-Dienstleistungen, maßgeschneidert für Ihre Bedürfnisse",
-      packages: {
-        portrait: {
-          title: "Individuelles Fotoshooting",
-          price: "250 zł",
-          description: "50 Minuten Dauer",
-          features: [
-            "40+ bearbeitete Fotos",
-            "Garderobe-Beratung",
-            "Hilfe bei der Standortwahl"
-          ]
-        },
-        family: {
-          title: "Familien-Fotoshooting",
-          price: "250 zł",
-          description: "50 Minuten Dauer",
-          features: [
-            "40+ bearbeitete Fotos",
-            "Garderobe-Beratung",
-            "Hilfe bei der Standortwahl"
-          ]
-        },
-        children: {
-          title: "Kinder-Fotoshooting",
-          price: "250 zł",
-          description: "50 Minuten Dauer",
-          features: [
-            "40+ bearbeitete Fotos",
-            "Garderobe-Beratung",
-            "Hilfe bei der Standortwahl"
-          ]
-        },
-        wedding: {
-          title: "Hochzeitsfotografie",
-          price: "Paket 1: 200 zł | Paket 2: 300 zł",
-          description: "Paket 1: Hochzeitsspaziergang 30 Min (40+ Fotos) | Paket 2: Standesamt + Spaziergang 30 Min (70+ Fotos)",
-          features: [
-            "Paket 1: Hochzeitsspaziergang 30 Min",
-            "40+ bearbeitete Fotos (Paket 1)",
-            "Paket 2: Standesamt + Spaziergang 30 Min",
-            "70+ bearbeitete Fotos (Paket 2)"
-          ]
-        },
-        event: {
-          title: "Veranstaltungsfotografie",
-          price: "Paket 1: 250 zł | Paket 2: 400 zł",
-          description: "Paket 1: Fotozone-Session (50+ Fotos) | Paket 2: Fotozone + 1 Stunde Feier (100+ Fotos)",
-          features: [
-            "Paket 1: Fotozone-Session 50 Min",
-            "50+ bearbeitete Fotos (Paket 1)",
-            "Paket 2: Fotozone + 1 Stunde Feier",
-            "100+ bearbeitete Fotos (Paket 2)"
-          ]
-        },
-        studio: {
-          title: "Studio-Fotografie",
-          price: "300 zł",
-          description: "Bis zu 1 Stunde Dauer",
-          features: [
-            "40+ bearbeitete Fotos",
-            "Garderobe-Beratung",
-            "Hilfe bei der Studiowahl (Studio zahlt der Kunde)"
-          ]
-        }
-      },
-      additionalInfo: {
-        delivery: "Bearbeitete Fotos werden über Google Drive Speicher gesendet, Fotos sind 30 Tage verfügbar, in denen Sie sie speichern können.",
-        originals: "Alle Originale werden optional innerhalb von 3 Tagen nach Erhalt der bearbeiteten Fotos auf Ihren USB-Stick übertragen."
-      },
-      mostPopular: "Beliebtestes",
-      bookNow: "Jetzt buchen"
-    },
-    booking: {
-      title: "Session buchen",
-      subtitle: "Lassen Sie uns gemeinsam schöne Erinnerungen schaffen",
-      form: {
-        name: "Vollständiger Name",
-        email: "E-Mail-Adresse",
-        phone: "Telefonnummer",
-        serviceType: "Service-Typ",
-        date: "Bevorzugtes Datum",
-        time: "Bevorzugte Zeit",
-        message: "Nachricht (Optional)",
-        submit: "Buchungsanfrage senden",
-        servicePlaceholder: "Service auswählen",
-        timePlaceholder: "Zeit auswählen",
-        agreement: "Durch das Absenden dieses Formulars stimmen Sie zu, bezüglich Ihrer Fotografie-Anfrage kontaktiert zu werden.",
-        validation: {
-          serviceRequired: "Bitte wählen Sie einen Service-Typ",
-          dateRequired: "Bitte wählen Sie ein Datum",
-          timeRequired: "Bitte wählen Sie eine Zeit"
-        },
-        services: {
-          wedding: "Hochzeitsfotografie",
-          portrait: "Portrait-Session",
-          family: "Familienfotografie",
-          event: "Veranstaltungsfotografie",
-          maternity: "Schwangerschaftsfotografie"
-        }
-      }
-    },
-    blog: {
-      title: "Fotografie Blog",
-      subtitle: "Tipps, Geschichten und Inspiration aus der Welt der Fotografie",
-      readMore: "Mehr lesen",
-      viewAllPosts: "Alle Beiträge anzeigen",
-      filterBy: "Nach Kategorie filtern:",
-      allPosts: "Alle Beiträge",
-      previous: "Vorherige",
-      next: "Nächste",
-      posts: [
-        {
-          title: "5 Tipps für perfekte Hochzeitsfotos",
-          excerpt: "Entdecken Sie die Geheimnisse, um magische Hochzeitsmomente festzuhalten, die Paare für immer schätzen werden.",
-          date: "15. März 2024",
-          category: "Hochzeit"
-        },
-        {
-          title: "Die Kunst der natürlichen Lichtfotografie",
-          excerpt: "Lernen Sie, wie Sie natürliches Licht nutzen, um atemberaubende Porträts zu erstellen.",
-          date: "8. März 2024",
-          category: "Tutorial"
-        },
-        {
-          title: "Vorbereitung für ein Familien-Fotoshooting",
-          excerpt: "Alles, was Familien wissen müssen, um sich auf ein erfolgreiches und spaßiges Fotoshooting vorzubereiten.",
-          date: "28. Februar 2024",
-          category: "Familie"
-        }
-      ]
-    },
-    testimonials: {
-      title: "Was Kunden sagen",
-      subtitle: "Geschichten von Familien und Paaren, die ich mit Freude fotografiert habe",
-      items: [
-        {
-          name: "Sarah & Michael",
-          role: "Hochzeitspaar",
-          content: "Vita hat unseren Hochzeitstag perfekt festgehalten! Ihre Aufmerksamkeit für Details und ihre Fähigkeit, uns wohlzufühlen, führten zu den schönsten Fotos, von denen wir hätten träumen können. Jede einzelne Aufnahme erzählt die Geschichte unserer Liebe."
-        },
-        {
-          name: "Jessica Thompson",
-          role: "Mutter von zwei Kindern",
-          content: "Unser Familien-Fotoshooting mit Vita war absolut wunderbar. Sie war so geduldig mit unseren Kindern und schaffte es, ihre Persönlichkeiten wunderschön einzufangen. Wir schätzen diese Fotos sehr und werden wieder bei ihr buchen!"
-        },
-        {
-          name: "David Rodriguez",
-          role: "Unternehmensleiter",
-          content: "Vitas Professionalität und künstlerisches Auge machten mein Headshot-Shooting zum Kinderspiel. Die Fotos, die sie lieferte, übertrafen meine Erwartungen und haben viele Türen in meiner Karriere geöffnet. Sehr empfehlenswert!"
-        },
-        {
-          name: "Anna & James",
-          role: "Werdende Eltern",
-          content: "Vita machte unser Babybauch-Shooting so besonders und komfortabel. Sie führte uns durch jede Pose und hielt die Freude dieser kostbaren Zeit in unserem Leben fest. Wir können es kaum erwarten, mit ihr für Neugeborenenfoto zu arbeiten!"
-        }
-      ]
-    },
-    contact: {
-      title: "Kontakt aufnehmen",
-      subtitle: "Bereit, Ihre besonderen Momente festzuhalten?",
-      address: "Wolsztyn, 64-200, Polen",
-      phone: "+48 791 613 941",
-      email: "vitahushel@gmail.com",
-      social: {
-        whatsapp: "Nachricht über WhatsApp",
-        telegram: "Kontakt über Telegram",
-        instagram: "Folgen Sie auf Instagram @vitahushel"
-      }
-    },
-    footer: {
-      copyright: "© 2024 Vita Hushel Fotografie. Alle Rechte vorbehalten.",
-      backToTop: "Nach oben"
-    },
-    meta: {
-      title: "Vita Hushel - Professioneller Fotograf",
-      description: "Professioneller Fotograf, spezialisiert auf das Festhalten der kostbarsten Lebensmomente mit künstlerischer Eleganz. Schaffe zeitlose Erinnerungen, die ein Leben lang bleiben."
     }
   }
 };

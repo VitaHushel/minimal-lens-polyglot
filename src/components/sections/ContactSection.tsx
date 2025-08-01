@@ -5,7 +5,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 
 export const ContactSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -29,28 +29,28 @@ export const ContactSection: React.FC = () => {
   const contactMethods = [
     {
       icon: Phone,
-      label: "📞 Phone / Телефон / Telefon",
+      label: `📞 ${t.contact.phone}`,
       value: "+48 791 613 941",
       action: () => window.open('tel:+48791613941'),
       ariaLabel: "Call Vita Hushel"
     },
     {
       icon: Mail,
-      label: "✉️ Email / Електронна пошта / E-mail",
+      label: `✉️ ${t.contact.email}`,
       value: "vitahushel@gmail.com",
       action: () => window.open('mailto:vitahushel@gmail.com'),
       ariaLabel: "Send email to Vita Hushel"
     },
     {
       icon: MessageCircle,
-      label: "💬 WhatsApp",
+      label: `💬 ${t.contact.social.whatsapp}`,
       value: "WhatsApp",
       action: () => window.open('https://wa.me/48791613941', '_blank'),
       ariaLabel: "WhatsApp"
     },
     {
       icon: Send,
-      label: "💬 Telegram",
+      label: `💬 ${t.contact.social.telegram}`,
       value: "Telegram",
       action: () => window.open('https://t.me/vitahushel', '_blank'),
       ariaLabel: "Telegram"
@@ -64,7 +64,7 @@ export const ContactSection: React.FC = () => {
     },
     {
       icon: Instagram,
-      label: "📱 Instagram",
+      label: `📱 ${t.contact.social.instagram}`,
       value: "@vitahushel",
       action: () => window.open('https://instagram.com/vitahushel', '_blank'),
       ariaLabel: "Instagram"
@@ -113,9 +113,9 @@ export const ContactSection: React.FC = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-foreground mb-2">📍 Location / Локація / Lokalizacja</h3>
+                  <h3 className="font-medium text-foreground mb-2">📍 {language === 'uk' ? 'Локація' : language === 'pl' ? 'Lokalizacja' : 'Location'}</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Вольштин, 64-200, Польща / Wolsztyn, 64-200, Poland
+                    {t.contact.address}
                   </p>
                 </div>
               </div>
@@ -149,15 +149,15 @@ export const ContactSection: React.FC = () => {
 
             {/* Business Hours */}
             <div className="mt-8 p-6 bg-card rounded-lg shadow-soft">
-              <h3 className="font-medium text-foreground mb-4">🕒 Working hours / Графік роботи / Godziny pracy</h3>
+              <h3 className="font-medium text-foreground mb-4">🕒 {language === 'uk' ? 'Графік роботи' : language === 'pl' ? 'Godziny pracy' : 'Working hours'}</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Mon–Fri / Пн–Пт / Pon–Pt:</span>
+                  <span className="text-muted-foreground">{language === 'uk' ? 'Пн–Пт:' : language === 'pl' ? 'Pon–Pt:' : 'Mon–Fri:'}</span>
                   <span className="text-foreground">10:00–18:00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Sat–Sun / Сб–Нд / Sob–Nd:</span>
-                  <span className="text-foreground">by appointment / за попереднім записом / po wcześniejszym umówieniu</span>
+                  <span className="text-muted-foreground">{language === 'uk' ? 'Сб–Нд:' : language === 'pl' ? 'Sob–Nd:' : 'Sat–Sun:'}</span>
+                  <span className="text-foreground">{language === 'uk' ? 'за попереднім записом' : language === 'pl' ? 'po wcześniejszym umówieniu' : 'by appointment'}</span>
                 </div>
               </div>
             </div>
