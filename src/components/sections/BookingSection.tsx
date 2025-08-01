@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+Аimport React, { useEffect, useRef, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { Calendar as CalendarIcon, Clock, Send } from 'lucide-react';
 import { format } from 'date-fns';
@@ -266,8 +266,9 @@ export const BookingSection: React.FC = () => {
                       <SelectItem value="wedding">{t.booking.form.services.wedding}</SelectItem>
                       <SelectItem value="portrait">{t.booking.form.services.portrait}</SelectItem>
                       <SelectItem value="family">{t.booking.form.services.family}</SelectItem>
+                      <SelectItem value="children">{t.booking.form.services.children}</SelectItem>
                       <SelectItem value="event">{t.booking.form.services.event}</SelectItem>
-                      <SelectItem value="maternity">{t.booking.form.services.maternity}</SelectItem>
+                      <SelectItem value="studio">{t.booking.form.services.studio}</SelectItem>
                     </SelectContent>
                   </Select>
                   {errors.serviceType && (
