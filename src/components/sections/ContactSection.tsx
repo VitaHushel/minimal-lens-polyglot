@@ -29,52 +29,52 @@ export const ContactSection: React.FC = () => {
   const contactMethods = [
     {
       icon: Phone,
-      label: t.contact.phone,
+      label: "📞 Phone / Телефон / Telefon",
       value: "+48 791 613 941",
       action: () => window.open('tel:+48791613941'),
       ariaLabel: "Call Vita Hushel"
     },
     {
       icon: Mail,
-      label: t.contact.email,
+      label: "✉️ Email / Електронна пошта / E-mail",
       value: "vitahushel@gmail.com",
       action: () => window.open('mailto:vitahushel@gmail.com'),
       ariaLabel: "Send email to Vita Hushel"
     },
     {
       icon: MessageCircle,
-      label: t.contact.social.whatsapp,
+      label: "💬 WhatsApp",
       value: "WhatsApp",
       action: () => window.open('https://wa.me/48791613941', '_blank'),
-      ariaLabel: t.contact.social.whatsapp
+      ariaLabel: "WhatsApp"
     },
     {
       icon: Send,
-      label: t.contact.social.telegram,
+      label: "💬 Telegram",
       value: "Telegram",
       action: () => window.open('https://t.me/vitahushel', '_blank'),
-      ariaLabel: t.contact.social.telegram
-    },
-    {
-      icon: Instagram,
-      label: t.contact.social.instagram,
-      value: "@vitahushel",
-      action: () => window.open('https://instagram.com/vitahushel', '_blank'),
-      ariaLabel: t.contact.social.instagram
-    },
-    {
-      icon: Facebook,
-      label: "Facebook",
-      value: "Vita Hushel",
-      action: () => window.open('https://facebook.com/vitahushel', '_blank'),
-      ariaLabel: "Facebook"
+      ariaLabel: "Telegram"
     },
     {
       icon: MessageCircle,
-      label: "Viber",
+      label: "💬 Viber",
       value: "+48 791 613 941",
       action: () => window.open('viber://chat?number=%2B48791613941', '_blank'),
       ariaLabel: "Contact via Viber"
+    },
+    {
+      icon: Instagram,
+      label: "📱 Instagram",
+      value: "@vitahushel",
+      action: () => window.open('https://instagram.com/vitahushel', '_blank'),
+      ariaLabel: "Instagram"
+    },
+    {
+      icon: Facebook,
+      label: "📱 Facebook",
+      value: "Vita Hushel",
+      action: () => window.open('https://facebook.com/vitahushel', '_blank'),
+      ariaLabel: "Facebook"
     }
   ];
 
@@ -113,9 +113,9 @@ export const ContactSection: React.FC = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-foreground mb-2"> Location</h3>
+                  <h3 className="font-medium text-foreground mb-2">📍 Location / Локація / Lokalizacja</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    {t.contact.address}
+                    Вольштин, 64-200, Польща / Wolsztyn, 64-200, Poland
                   </p>
                 </div>
               </div>
@@ -149,19 +149,15 @@ export const ContactSection: React.FC = () => {
 
             {/* Business Hours */}
             <div className="mt-8 p-6 bg-card rounded-lg shadow-soft">
-              <h3 className="font-medium text-foreground mb-4">Business Hours</h3>
+              <h3 className="font-medium text-foreground mb-4">🕒 Working hours / Графік роботи / Godziny pracy</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Monday - Friday</span>
-                  <span className="text-foreground">9:00 AM - 6:00 PM</span>
+                  <span className="text-muted-foreground">Mon–Fri / Пн–Пт / Pon–Pt:</span>
+                  <span className="text-foreground">10:00–18:00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Saturday</span>
-                  <span className="text-foreground">10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Sunday</span>
-                  <span className="text-foreground">By Appointment</span>
+                  <span className="text-muted-foreground">Sat–Sun / Сб–Нд / Sob–Nd:</span>
+                  <span className="text-foreground">by appointment / за попереднім записом / po wcześniejszym umówieniu</span>
                 </div>
               </div>
             </div>

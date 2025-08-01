@@ -56,3 +56,4 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
+export { BlogSection };
