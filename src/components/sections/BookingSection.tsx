@@ -118,11 +118,16 @@ export const BookingSection: React.FC = () => {
       formData.append('entry.1405194602_day', day);
 
       // Submit to Google Form
-      await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse', {
+      const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse', {
         method: 'POST',
         body: formData,
-        mode: 'no-cors'
+        headers: {
+          'Accept': 'application/json',
+        }
       });
+
+      console.log('Form submission status:', response.status);
+      console.log('Form data sent:', Object.fromEntries(formData));
       
       toast({
         title: "Booking Request Sent!",
