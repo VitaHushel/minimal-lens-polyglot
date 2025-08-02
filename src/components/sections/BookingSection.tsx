@@ -104,30 +104,52 @@ export const BookingSection: React.FC = () => {
       const month = selectedDate ? (selectedDate.getMonth() + 1).toString() : '';
       const year = selectedDate ? selectedDate.getFullYear().toString() : '';
 
-      // Prepare Google Form data
-      const formData = new FormData();
-      formData.append('entry.815529139', data.name);
-      formData.append('entry.899621187', data.email);
-      formData.append('entry.743738326', data.phone || '');
-      formData.append('entry.133412522', data.serviceType);
-      formData.append('entry.1820092030', data.message || '');
-      formData.append('entry.1044407857_hour', hour);
-      formData.append('entry.1044407857_minute', minute);
-      formData.append('entry.1405194602_year', year);
-      formData.append('entry.1405194602_month', month);
-      formData.append('entry.1405194602_day', day);
+      // Create hidden form for Google Forms submission
+      const hiddenForm = document.createElement('form');
+      hiddenForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse';
+      hiddenForm.method = 'POST';
+      hiddenForm.target = 'hidden_iframe';
+      
+      // Create hidden iframe for submission
+      const hiddenIframe = document.createElement('iframe');
+      hiddenIframe.name = 'hidden_iframe';
+      hiddenIframe.style.display = 'none';
+      document.body.appendChild(hiddenIframe);
 
-      // Submit to Google Form
-      const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json',
-        }
+      // Add form fields
+      const fields = {
+        'entry.815529139': data.name,
+        'entry.899621187': data.email,
+        'entry.743738326': data.phone || '',
+        'entry.133412522': data.serviceType,
+        'entry.1820092030': data.message || '',
+        'entry.1044407857_hour': hour,
+        'entry.1044407857_minute': minute,
+        'entry.1405194602_year': year,
+        'entry.1405194602_month': month,
+        'entry.1405194602_day': day
+      };
+
+      Object.entries(fields).forEach(([name, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        input.value = value;
+        hiddenForm.appendChild(input);
       });
 
-      console.log('Form submission status:', response.status);
-      console.log('Form data sent:', Object.fromEntries(formData));
+      document.body.appendChild(hiddenForm);
+      
+      // Submit form
+      hiddenForm.submit();
+      
+      // Clean up
+      setTimeout(() => {
+        document.body.removeChild(hiddenForm);
+        document.body.removeChild(hiddenIframe);
+      }, 1000);
+
+      console.log('Form submitted with data:', fields);
       
       toast({
         title: "Booking Request Sent!",
