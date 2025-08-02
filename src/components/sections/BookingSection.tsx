@@ -95,115 +95,33 @@ export const BookingSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('Starting form submission with data:', data);
-      
-      // Send to multiple endpoints for reliability
       const formattedDate = data.date ? format(data.date, 'yyyy-MM-dd') : '';
-      const emailBody = `
-Нове бронювання сесії
+      
+      // Send to Supabase Edge Function
+      const response = await fetch('/functions/v1/send-booking-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          serviceType: data.serviceType,
+          date: formattedDate,
+          time: data.time,
+          message: data.message
+        })
+      });
 
-Ім'я: ${data.name}
-Email: ${data.email}
-Телефон: ${data.phone || 'Не вказано'}
-Тип сесії: ${data.serviceType}
-Дата: ${formattedDate}
-Час: ${data.time}
-Повідомлення: ${data.message || 'Не вказано'}
-      `;
-
-      // Method 1: Try EmailJS (most reliable)
-      try {
-        const emailJSResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            service_id: 'default_service',
-            template_id: 'template_booking',
-            user_id: 'public_key_here',
-            template_params: {
-              to_email: 'vitahushelphoto@gmail.com',
-              from_name: data.name,
-              from_email: data.email,
-              phone: data.phone,
-              service_type: data.serviceType,
-              date: formattedDate,
-              time: data.time,
-              message: data.message || '',
-              subject: 'Нове бронювання сесії'
-            }
-          })
-        });
-        console.log('EmailJS response:', emailJSResponse.status);
-      } catch (emailError) {
-        console.error('EmailJS failed:', emailError);
+      const result = await response.json();
+      
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to send email');
       }
 
-      // Method 2: Web3Forms (backup)
-      try {
-        const web3Response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            access_key: 'your-web3forms-key-here',
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            service: data.serviceType,
-            date: formattedDate,
-            time: data.time,
-            message: data.message,
-            to: 'vitahushelphoto@gmail.com',
-            subject: 'Нове бронювання сесії'
-          })
-        });
-        console.log('Web3Forms response:', web3Response.status);
-      } catch (web3Error) {
-        console.error('Web3Forms failed:', web3Error);
-      }
-
-      // Method 3: Google Forms with corrected entry IDs
-      try {
-        const googleForm = document.createElement('form');
-        googleForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse';
-        googleForm.method = 'POST';
-        googleForm.target = '_blank';
-        
-        // Create form fields with the exact entry names from your Google Form
-        const formFields = [
-          { name: 'entry.815529139', value: data.name },
-          { name: 'entry.899621187', value: data.email },
-          { name: 'entry.743738326', value: data.phone || '' },
-          { name: 'entry.133412522', value: data.serviceType },
-          { name: 'entry.1820092030', value: data.message || '' },
-          { name: 'entry.1044407857', value: data.time },
-          { name: 'entry.1405194602', value: formattedDate }
-        ];
-
-        formFields.forEach(({ name, value }) => {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = name;
-          input.value = value;
-          googleForm.appendChild(input);
-        });
-
-        document.body.appendChild(googleForm);
-        googleForm.submit();
-        setTimeout(() => document.body.removeChild(googleForm), 1000);
-        
-        console.log('Google Forms submitted');
-      } catch (googleError) {
-        console.error('Google Forms failed:', googleError);
-      }
-
-      // Method 4: Mailto fallback
-      const mailtoLink = `mailto:vitahushelphoto@gmail.com?subject=Нове бронювання сесії&body=${encodeURIComponent(emailBody)}`;
-      console.log('Mailto fallback created:', mailtoLink);
-
+      console.log('Email sent successfully:', result);
+      
       toast({
         title: "Заявка відправлена!",
         description: "Дякую за ваш інтерес. Я зв'яжуся з вами протягом 24 годин.",
@@ -213,25 +131,9 @@ Email: ${data.email}
     } catch (error) {
       console.error('Form submission error:', error);
       
-      // Fallback to direct email
-      const emailBody = `
-Нове бронювання сесії
-
-Ім'я: ${data.name}
-Email: ${data.email}
-Телефон: ${data.phone || 'Не вказано'}
-Тип сесії: ${data.serviceType}
-Дата: ${data.date ? format(data.date, 'yyyy-MM-dd') : 'Не вказано'}
-Час: ${data.time}
-Повідомлення: ${data.message || 'Не вказано'}
-      `;
-      
-      const mailtoLink = `mailto:vitahushelphoto@gmail.com?subject=Нове бронювання сесії&body=${encodeURIComponent(emailBody)}`;
-      window.open(mailtoLink);
-      
       toast({
-        title: "Відкрито email клієнт",
-        description: "Будь ласка, відправте email вручну або спробуйте пізніше.",
+        title: "Помилка відправки",
+        description: "Щось пішло не так. Спробуйте ще раз або зв'яжіться зі мною напряму.",
         variant: "destructive",
       });
     } finally {
