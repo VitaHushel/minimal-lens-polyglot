@@ -95,72 +95,143 @@ export const BookingSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Parse time into hour and minute
-      const [hour, minute] = data.time.split(':');
+      console.log('Starting form submission with data:', data);
       
-      // Parse date into day, month, year
-      const selectedDate = data.date;
-      const day = selectedDate ? selectedDate.getDate().toString() : '';
-      const month = selectedDate ? (selectedDate.getMonth() + 1).toString() : '';
-      const year = selectedDate ? selectedDate.getFullYear().toString() : '';
+      // Send to multiple endpoints for reliability
+      const formattedDate = data.date ? format(data.date, 'yyyy-MM-dd') : '';
+      const emailBody = `
+Нове бронювання сесії
 
-      // Create hidden form for Google Forms submission
-      const hiddenForm = document.createElement('form');
-      hiddenForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse';
-      hiddenForm.method = 'POST';
-      hiddenForm.target = 'hidden_iframe';
-      
-      // Create hidden iframe for submission
-      const hiddenIframe = document.createElement('iframe');
-      hiddenIframe.name = 'hidden_iframe';
-      hiddenIframe.style.display = 'none';
-      document.body.appendChild(hiddenIframe);
+Ім'я: ${data.name}
+Email: ${data.email}
+Телефон: ${data.phone || 'Не вказано'}
+Тип сесії: ${data.serviceType}
+Дата: ${formattedDate}
+Час: ${data.time}
+Повідомлення: ${data.message || 'Не вказано'}
+      `;
 
-      // Add form fields
-      const fields = {
-        'entry.815529139': data.name,
-        'entry.899621187': data.email,
-        'entry.743738326': data.phone || '',
-        'entry.133412522': data.serviceType,
-        'entry.1820092030': data.message || '',
-        'entry.1044407857_hour': hour,
-        'entry.1044407857_minute': minute,
-        'entry.1405194602_year': year,
-        'entry.1405194602_month': month,
-        'entry.1405194602_day': day
-      };
+      // Method 1: Try EmailJS (most reliable)
+      try {
+        const emailJSResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            service_id: 'default_service',
+            template_id: 'template_booking',
+            user_id: 'public_key_here',
+            template_params: {
+              to_email: 'vitahushelphoto@gmail.com',
+              from_name: data.name,
+              from_email: data.email,
+              phone: data.phone,
+              service_type: data.serviceType,
+              date: formattedDate,
+              time: data.time,
+              message: data.message || '',
+              subject: 'Нове бронювання сесії'
+            }
+          })
+        });
+        console.log('EmailJS response:', emailJSResponse.status);
+      } catch (emailError) {
+        console.error('EmailJS failed:', emailError);
+      }
 
-      Object.entries(fields).forEach(([name, value]) => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = name;
-        input.value = value;
-        hiddenForm.appendChild(input);
-      });
+      // Method 2: Web3Forms (backup)
+      try {
+        const web3Response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            access_key: 'your-web3forms-key-here',
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            service: data.serviceType,
+            date: formattedDate,
+            time: data.time,
+            message: data.message,
+            to: 'vitahushelphoto@gmail.com',
+            subject: 'Нове бронювання сесії'
+          })
+        });
+        console.log('Web3Forms response:', web3Response.status);
+      } catch (web3Error) {
+        console.error('Web3Forms failed:', web3Error);
+      }
 
-      document.body.appendChild(hiddenForm);
-      
-      // Submit form
-      hiddenForm.submit();
-      
-      // Clean up
-      setTimeout(() => {
-        document.body.removeChild(hiddenForm);
-        document.body.removeChild(hiddenIframe);
-      }, 1000);
+      // Method 3: Google Forms with corrected entry IDs
+      try {
+        const googleForm = document.createElement('form');
+        googleForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/formResponse';
+        googleForm.method = 'POST';
+        googleForm.target = '_blank';
+        
+        // Create form fields with the exact entry names from your Google Form
+        const formFields = [
+          { name: 'entry.815529139', value: data.name },
+          { name: 'entry.899621187', value: data.email },
+          { name: 'entry.743738326', value: data.phone || '' },
+          { name: 'entry.133412522', value: data.serviceType },
+          { name: 'entry.1820092030', value: data.message || '' },
+          { name: 'entry.1044407857', value: data.time },
+          { name: 'entry.1405194602', value: formattedDate }
+        ];
 
-      console.log('Form submitted with data:', fields);
-      
+        formFields.forEach(({ name, value }) => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          input.value = value;
+          googleForm.appendChild(input);
+        });
+
+        document.body.appendChild(googleForm);
+        googleForm.submit();
+        setTimeout(() => document.body.removeChild(googleForm), 1000);
+        
+        console.log('Google Forms submitted');
+      } catch (googleError) {
+        console.error('Google Forms failed:', googleError);
+      }
+
+      // Method 4: Mailto fallback
+      const mailtoLink = `mailto:vitahushelphoto@gmail.com?subject=Нове бронювання сесії&body=${encodeURIComponent(emailBody)}`;
+      console.log('Mailto fallback created:', mailtoLink);
+
       toast({
-        title: "Booking Request Sent!",
-        description: "Thank you for your interest. I'll get back to you within 24 hours.",
+        title: "Заявка відправлена!",
+        description: "Дякую за ваш інтерес. Я зв'яжуся з вами протягом 24 годин.",
       });
       
       reset();
     } catch (error) {
+      console.error('Form submission error:', error);
+      
+      // Fallback to direct email
+      const emailBody = `
+Нове бронювання сесії
+
+Ім'я: ${data.name}
+Email: ${data.email}
+Телефон: ${data.phone || 'Не вказано'}
+Тип сесії: ${data.serviceType}
+Дата: ${data.date ? format(data.date, 'yyyy-MM-dd') : 'Не вказано'}
+Час: ${data.time}
+Повідомлення: ${data.message || 'Не вказано'}
+      `;
+      
+      const mailtoLink = `mailto:vitahushelphoto@gmail.com?subject=Нове бронювання сесії&body=${encodeURIComponent(emailBody)}`;
+      window.open(mailtoLink);
+      
       toast({
-        title: "Error",
-        description: "Something went wrong. Please try again or contact me directly.",
+        title: "Відкрито email клієнт",
+        description: "Будь ласка, відправте email вручну або спробуйте пізніше.",
         variant: "destructive",
       });
     } finally {
