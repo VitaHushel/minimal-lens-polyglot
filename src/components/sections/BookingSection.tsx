@@ -89,35 +89,46 @@ export const BookingSection: React.FC = () => {
   const onSubmit = async (data: BookingFormData) => {
     // Honeypot spam protection
     if (data.honeypot) {
+      console.log('Blocked spam submission');
       return;
     }
 
+    console.log('Starting form submission with data:', data);
     setIsSubmitting(true);
 
     try {
       const formattedDate = data.date ? format(data.date, 'yyyy-MM-dd') : '';
       
-      // Send to Supabase Edge Function
-      const response = await fetch('/functions/v1/send-booking-email', {
+      const payload = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        serviceType: data.serviceType,
+        date: formattedDate,
+        time: data.time,
+        message: data.message
+      };
+      
+      console.log('Sending payload to Supabase:', payload);
+      
+      // Send to Supabase Edge Function - correct URL for deployed function
+      const response = await fetch('https://hjlqrprltyjkgikytdws.supabase.co/functions/v1/send-booking-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqbHFycHJsdHlqa2dpa3l0ZHdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0MTUyOTUsImV4cCI6MjA0ODk5MTI5NX0.oFCLAoUBUr--I9tBt4HKT_Z8_6tfP71-wkNBV1VZMTY'
         },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          serviceType: data.serviceType,
-          date: formattedDate,
-          time: data.time,
-          message: data.message
-        })
+        body: JSON.stringify(payload)
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+      
       const result = await response.json();
+      console.log('Response data:', result);
       
       if (!response.ok || !result.success) {
-        throw new Error(result.error || 'Failed to send email');
+        throw new Error(result.error || `HTTP ${response.status}: Failed to send email`);
       }
 
       console.log('Email sent successfully:', result);
@@ -133,7 +144,7 @@ export const BookingSection: React.FC = () => {
       
       toast({
         title: "Помилка відправки",
-        description: "Щось пішло не так. Спробуйте ще раз або зв'яжіться зі мною напряму.",
+        description: `Помилка: ${error.message}. Спробуйте ще раз або зв'яжіться зі мною напряму.`,
         variant: "destructive",
       });
     } finally {
