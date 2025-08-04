@@ -112,11 +112,11 @@ export const BookingSection: React.FC = () => {
       console.log('Sending payload to Supabase:', payload);
       
       // Send to Supabase Edge Function - correct URL for deployed function
-      const response = await fetch('https://hjlqrprltyjkgikytdws.supabase.co/functions/v1/send-booking-email', {
+      const response = await fetch('https://zikpbubclqqgmndwnnua.supabase.co/functions/v1/send-booking-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqbHFycHJsdHlqa2dpa3l0ZHdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0MTUyOTUsImV4cCI6MjA0ODk5MTI5NX0.oFCLAoUBUr--I9tBt4HKT_Z8_6tfP71-wkNBV1VZMTY'
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inppa3BidWJjbHFxZ21uZHdubnVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQyMDc2MzMsImV4cCI6MjA2OTc4MzYzM30.AMYcRQ3MYrRL5amMgrB40PHBGrDB6D_J2xRG9ajpol8'
         },
         body: JSON.stringify(payload)
       });
