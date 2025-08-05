@@ -29,10 +29,10 @@ export const Navigation: React.FC = () => {
     { key: 'about', href: '#about', isRoute: false },
     { key: 'portfolio', href: '#portfolio', isRoute: false },
     { key: 'prices', href: '#prices', isRoute: false },
-    { key: 'booking', href: '#booking', isRoute: false },
     { key: 'testimonials', href: '#testimonials', isRoute: false },
     { key: 'blog', href: '/blog', isRoute: true },
     { key: 'contact', href: '#contact', isRoute: false },
+    { key: 'booking', href: '/booking', isRoute: true },
   ];
 
   // Filter nav items for blog page (only show home)
