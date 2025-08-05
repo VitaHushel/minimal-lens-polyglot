@@ -42,7 +42,7 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'bookings@vitahushelphoto.com',
+        from: 'onboarding@resend.dev',
         to: ['vitahushelphoto@gmail.com'],
         subject: 'Нове бронювання фотосесії',
         html: emailContent,
