@@ -51,7 +51,9 @@ serve(async (req) => {
     })
 
     if (!resendResponse.ok) {
-      throw new Error(`Resend API error: ${resendResponse.status}`)
+      const errorText = await resendResponse.text()
+      console.error('Resend API error:', resendResponse.status, errorText)
+      throw new Error(`Resend API error: ${resendResponse.status} - ${errorText}`)
     }
 
     const result = await resendResponse.json()
