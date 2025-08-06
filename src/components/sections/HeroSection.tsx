@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Button } from '../ui/button';
 import heroBg from '../../assets/hero-bg.jpg';
 
 export const HeroSection: React.FC = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -12,15 +14,7 @@ export const HeroSection: React.FC = () => {
   }, []);
 
   const handleBookingClick = () => {
-    const bookingSection = document.querySelector('#booking') as HTMLElement;
-    if (bookingSection) {
-      const offset = 80;
-      const elementPosition = bookingSection.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
+    navigate('/booking');
   };
 
   return (
