@@ -26,15 +26,7 @@ export const PricesSection: React.FC = () => {
   }, []);
 
   const handleBookingClick = () => {
-    const bookingSection = document.querySelector('#booking') as HTMLElement;
-    if (bookingSection) {
-      const offset = 80;
-      const elementPosition = bookingSection.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
+    window.open('/booking', '_self');
   };
 
   const packages = [

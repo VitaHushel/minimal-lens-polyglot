@@ -122,17 +122,7 @@ export const TestimonialsSection: React.FC = () => {
             Ready to create your own beautiful memories?
           </p>
           <button
-            onClick={() => {
-              const bookingSection = document.querySelector('#booking') as HTMLElement;
-              if (bookingSection) {
-                const offset = 80;
-                const elementPosition = bookingSection.offsetTop - offset;
-                window.scrollTo({
-                  top: elementPosition,
-                  behavior: 'smooth'
-                });
-              }
-            }}
+            onClick={() => window.open('/booking', '_self')}
             className="text-primary hover:text-primary/80 font-medium underline transition-colors"
           >
             Book Your Session Today
