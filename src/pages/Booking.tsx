@@ -18,7 +18,7 @@ const Booking: React.FC = () => {
               {t.nav.booking}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Заповніть форму нижче, щоб забронювати фотосесію
+              {t.booking.subtitle}
             </p>
           </div>
         </section>
@@ -30,20 +30,20 @@ const Booking: React.FC = () => {
               <div className="bg-card rounded-xl shadow-soft border border-border overflow-hidden">
                 <div className="p-6 lg:p-8">
                   <h2 className="text-2xl font-elegant font-semibold text-foreground mb-6 text-center">
-                    Форма бронювання
+                    {t.booking.title}
                   </h2>
                   
                   {/* Google Form Embed */}
                   <div className="relative w-full" style={{ paddingBottom: '100%', minHeight: '600px' }}>
                     <iframe
-                      src="https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/viewform?usp=sharing"
+                      src={t.booking.formUrl}
                       className="absolute top-0 left-0 w-full h-full border-0"
                       frameBorder="0"
                       marginHeight={0}
                       marginWidth={0}
-                      title="Форма бронювання"
+                      title={t.booking.title}
                     >
-                      Завантаження...
+                      Loading...
                     </iframe>
                   </div>
                 </div>

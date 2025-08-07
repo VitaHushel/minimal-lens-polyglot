@@ -77,6 +77,7 @@ export interface TranslationContent {
   booking: {
     title: string;
     subtitle: string;
+    formUrl: string;
     form: {
       name: string;
       email: string;
@@ -254,6 +255,7 @@ export const translations: Record<Language, TranslationContent> = {
     booking: {
       title: "Book Your Session",
       subtitle: "Let's create beautiful memories together",
+      formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc5ibYT0MzB56igtsGds6dqsA5toMBurgbPZgkQ9jwg2ySm-A/viewform?usp=sharing",
       form: {
         name: "Full Name",
         email: "Email Address",
@@ -461,6 +463,7 @@ export const translations: Record<Language, TranslationContent> = {
     booking: {
       title: "Забронювати сесію",
       subtitle: "Давайте створимо прекрасні спогади разом",
+      formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdTZICrSs1-Qt44scaUk0gQIuJH9gwzh9jxgAwt-Bysdjj3Cw/viewform?usp=sharing&ouid=102239375901531470922",
       form: {
         name: "Повне ім'я",
         email: "Електронна пошта",
@@ -668,6 +671,7 @@ export const translations: Record<Language, TranslationContent> = {
     booking: {
       title: "Zarezerwuj sesję",
       subtitle: "Stwórzmy razem piękne wspomnienia",
+      formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeMbcQpKK4L11C0oSUDnir3rEVgfnxWjPStaZmxuePIfBeAzQ/viewform?usp=sharing&ouid=102239375901531470922",
       form: {
         name: "Imię i nazwisko",
         email: "Adres e-mail",
