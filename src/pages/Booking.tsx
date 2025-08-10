@@ -11,18 +11,6 @@ const Booking: React.FC = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
-          <div className="container mx-auto px-4 lg:px-8 text-center">
-            <h1 className="text-3xl lg:text-5xl font-elegant font-bold text-foreground mb-6">
-              {t.nav.booking}
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t.booking.subtitle}
-            </p>
-          </div>
-        </section>
-
         {/* Full Page Google Form Section */}
         <section className="min-h-screen">
           <div className="w-full h-full">
