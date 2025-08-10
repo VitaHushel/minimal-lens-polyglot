@@ -23,31 +23,28 @@ const Booking: React.FC = () => {
           </div>
         </section>
 
-        {/* Google Form Section */}
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-card rounded-xl shadow-soft border border-border overflow-hidden">
-                <div className="p-6 lg:p-8">
-                  <h2 className="text-2xl font-elegant font-semibold text-foreground mb-6 text-center">
-                    {t.booking.title}
-                  </h2>
-                  
-                  {/* Google Form Embed */}
-                  <div className="relative w-full" style={{ paddingBottom: '100%', minHeight: '600px' }}>
-                    <iframe
-                      src={t.booking.formUrl}
-                      className="absolute top-0 left-0 w-full h-full border-0"
-                      frameBorder="0"
-                      marginHeight={0}
-                      marginWidth={0}
-                      title={t.booking.title}
-                    >
-                      Loading...
-                    </iframe>
-                  </div>
-                </div>
-              </div>
+        {/* Full Page Google Form Section */}
+        <section className="min-h-screen">
+          <div className="w-full h-full">
+            <div className="mb-4 text-center bg-background/95 backdrop-blur-sm border-b border-border py-4">
+              <h2 className="text-xl font-elegant font-semibold text-foreground">
+                {t.booking.title}
+              </h2>
+            </div>
+            
+            {/* Full Page Google Form Embed */}
+            <div className="w-full h-screen">
+              <iframe
+                src={t.booking.formUrl}
+                className="w-full h-full border-0"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title={t.booking.title}
+                style={{ minHeight: 'calc(100vh - 140px)' }}
+              >
+                Loading...
+              </iframe>
             </div>
           </div>
         </section>
