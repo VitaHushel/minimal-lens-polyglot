@@ -37,7 +37,7 @@ export const ContactSection: React.FC = () => {
     {
       icon: Mail,
       label: `✉️ ${t.contact.email}`,
-      value: "vitahushel@gmail.com",
+      value: "vitahushelphoto@gmail.com",
       action: () => window.open('mailto:vitahushel@gmail.com'),
       ariaLabel: "Send email to Vita Hushel"
     },
@@ -52,21 +52,21 @@ export const ContactSection: React.FC = () => {
       icon: Send,
       label: `💬 ${t.contact.social.telegram}`,
       value: "Telegram",
-      action: () => window.open('https://t.me/vitahushel', '_blank'),
+      action: () => window.open('https://t.me/vitahushelphoto', '_blank'),
       ariaLabel: "Telegram"
     },
     {
       icon: MessageCircle,
       label: "💬 Viber",
       value: "+48 791 613 941",
-      action: () => window.open('viber://chat?number=%2B48791613941', '_blank'),
+      action: () => window.open('viber://chat?number=%2B+48791613941', '_blank'),
       ariaLabel: "Contact via Viber"
     },
     {
       icon: Instagram,
       label: `📱 ${t.contact.social.instagram}`,
-      value: "@vitahushel",
-      action: () => window.open('https://instagram.com/vitahushel', '_blank'),
+      value: "@vitahushelphoto",
+      action: () => window.open('https://instagram.com/vitahushelphoto', '_blank'),
       ariaLabel: "Instagram"
     },
     {
