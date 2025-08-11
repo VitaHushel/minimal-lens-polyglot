@@ -12,22 +12,20 @@ const Booking: React.FC = () => {
       <Navigation />
       <main className="pt-20">
         {/* Full Page Google Form Section */}
-        <section className="min-h-screen">
-          <div className="w-full h-full">
+        <section className="w-full">
+          <div className="w-full">
             {/* Full Page Google Form Embed */}
-            <div className="w-full h-screen">
-              <iframe
-                src={t.booking.formUrl}
-                className="w-full h-full border-0"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
-                title={t.booking.title}
-                style={{ minHeight: 'calc(100vh - 140px)' }}
-              >
-                Loading...
-              </iframe>
-            </div>
+            <iframe
+              src={t.booking.formUrl}
+              className="w-full border-0"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              title={t.booking.title}
+              style={{ height: '100vh', minHeight: '800px' }}
+            >
+              Loading...
+            </iframe>
           </div>
         </section>
       </main>
