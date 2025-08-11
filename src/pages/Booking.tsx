@@ -14,12 +14,6 @@ const Booking: React.FC = () => {
         {/* Full Page Google Form Section */}
         <section className="min-h-screen">
           <div className="w-full h-full">
-            <div className="mb-4 text-center bg-background/95 backdrop-blur-sm border-b border-border py-4">
-              <h2 className="text-xl font-elegant font-semibold text-foreground">
-                {t.booking.title}
-              </h2>
-            </div>
-            
             {/* Full Page Google Form Embed */}
             <div className="w-full h-screen">
               <iframe
