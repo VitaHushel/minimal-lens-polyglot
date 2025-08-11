@@ -65,7 +65,7 @@ export const ContactSection: React.FC = () => {
     {
       icon: Instagram,
       label: `📱 ${t.contact.social.instagram}`,
-      value: "@vitahushelphoto",
+      value: "@vitahushel_photo",
       action: () => window.open('https://instagram.com/vitahushelphoto', '_blank'),
       ariaLabel: "Instagram"
     },
